@@ -39,7 +39,7 @@ const formatDate = (dateString: Date) => {
             {
                 renderedEntries.map((entry) => (
                     <li>
-                        <a href={`works/${entry.slug}`}>
+                        <a href={entry.slug}>
                             <span class="title">
                                 {entry.data.title}
                                 {entry.minutesRead && (
