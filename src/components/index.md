@@ -25,9 +25,6 @@ software engineering.
 
 I Mainly work on the web with Go, HTMX, and PostgreSQL, but also enjoy using C#, React, and other frameworks.
 
-Through my work experience, I've gained a broad perspective writing software; from designing visually-focused
-digital marketing projects at 183°, to building large-scale enterprise applications at Milwaukee Tool.
-
 Through my internship experience and college coursework, I've developed a comprehensive understanding of
 the following technologies:
 
