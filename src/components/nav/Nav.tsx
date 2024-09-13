@@ -14,79 +14,77 @@ export const Nav = ({ children }: { children: React.ReactNode }) => {
     const [isToggled, setIsToggled] = useState(false)
     const navRef = useRef<HTMLButtonElement>(null)
     const SCROLL_THRESHOLD = 30
+    const [isTouchDevice, setIsTouchDevice] = useState(false) // State for touch device detection
 
     useEffect(() => {
-        const hash = window.location.hash
+        // Check if running on the client side
+        if (typeof window !== 'undefined') {
+            setIsTouchDevice(
+                'ontouchstart' in window || navigator.maxTouchPoints > 0
+            )
 
-        if (!hash) {
-            window.history.scrollRestoration = 'manual'
-        } else {
-            window.history.scrollRestoration = 'auto'
-        }
-
-        const handleScroll = () => {
-            const currentScrollY = window.scrollY
-
-            if (isToggled) {
-                return
+            const hash = window.location.hash
+            if (!hash) {
+                window.history.scrollRestoration = 'manual'
+            } else {
+                window.history.scrollRestoration = 'auto'
             }
 
-            if (idleTimeout) {
-                clearTimeout(idleTimeout)
-            }
+            if (!isTouchDevice) {
+                const handleScroll = () => {
+                    const currentScrollY = window.scrollY
 
-            if (currentScrollY === 0) {
-                setIsVisible(true)
-                setScrollUpDistance(0)
-                setScrollDownDistance(0)
-            } else if (currentScrollY < lastScrollY) {
-                setScrollDownDistance(0)
-                setScrollUpDistance(
-                    (prevDistance) =>
-                        prevDistance + (lastScrollY - currentScrollY)
-                )
+                    if (isToggled) {
+                        return
+                    }
 
-                if (scrollUpDistance > SCROLL_THRESHOLD) {
-                    setIsVisible(true)
+                    if (idleTimeout) {
+                        clearTimeout(idleTimeout)
+                    }
+
+                    if (currentScrollY === 0) {
+                        setIsVisible(true)
+                        setScrollUpDistance(0)
+                        setScrollDownDistance(0)
+                    } else if (currentScrollY < lastScrollY) {
+                        setScrollDownDistance(0)
+                        setScrollUpDistance(
+                            (prevDistance) =>
+                                prevDistance + (lastScrollY - currentScrollY)
+                        )
+
+                        if (scrollUpDistance > SCROLL_THRESHOLD) {
+                            setIsVisible(true)
+                        }
+                    } else if (currentScrollY > lastScrollY) {
+                        setScrollUpDistance(0)
+                        setScrollDownDistance(
+                            (prevDistance) =>
+                                prevDistance + (currentScrollY - lastScrollY)
+                        )
+
+                        if (scrollDownDistance > SCROLL_THRESHOLD) {
+                            setIsVisible(false)
+                        }
+                    }
+
+                    if (currentScrollY !== 0 && !isToggled) {
+                        const timeout = setTimeout(() => {
+                            setIsVisible(false)
+                        }, 5000)
+                        setIdleTimeout(timeout)
+                    }
+
+                    setLastScrollY(currentScrollY)
                 }
-            } else if (currentScrollY > lastScrollY) {
-                setScrollUpDistance(0)
-                setScrollDownDistance(
-                    (prevDistance) =>
-                        prevDistance + (currentScrollY - lastScrollY)
-                )
 
-                if (scrollDownDistance > SCROLL_THRESHOLD) {
-                    setIsVisible(false)
+                window.addEventListener('scroll', handleScroll)
+
+                return () => {
+                    window.history.scrollRestoration = 'auto'
+                    window.removeEventListener('scroll', handleScroll)
                 }
             }
-
-            if (currentScrollY !== 0 && !isToggled) {
-                const timeout = setTimeout(() => {
-                    setIsVisible(false)
-                }, 5000)
-                setIdleTimeout(timeout)
-            }
-
-            setLastScrollY(currentScrollY)
-        }
-
-        const handleClickOutside = (event: MouseEvent) => {
-            if (
-                navRef.current &&
-                !navRef.current.contains(event.target as Node)
-            ) {
-                setIsToggled(false)
-            }
-        }
-
-        window.addEventListener('scroll', handleScroll)
-        document.addEventListener('mousedown', handleClickOutside)
-
-        return () => {
-            window.history.scrollRestoration = 'auto'
-            window.removeEventListener('scroll', handleScroll)
-            document.removeEventListener('mousedown', handleClickOutside)
         }
     }, [
         lastScrollY,
@@ -95,12 +93,29 @@ export const Nav = ({ children }: { children: React.ReactNode }) => {
         isHovered,
         idleTimeout,
         isToggled,
+        isTouchDevice, // Dependency to ensure effect runs when this changes
     ])
 
     const handleToggle = () => {
         setIsToggled(!isToggled)
         setIsVisible(true)
     }
+
+    const handleClickOutside = (event: MouseEvent) => {
+        if (navRef.current && !navRef.current.contains(event.target as Node)) {
+            setIsToggled(false)
+        }
+    }
+
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            document.addEventListener('mousedown', handleClickOutside)
+
+            return () => {
+                document.removeEventListener('mousedown', handleClickOutside)
+            }
+        }
+    }, [])
 
     return (
         <header className={styles.header}>

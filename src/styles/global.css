@@ -64,6 +64,7 @@
 html {
 	overflow-x: hidden;
 	scroll-behavior: smooth;
+	scrollbar-gutter: stable;
 }
 
 body {
@@ -134,6 +135,7 @@ h6 {
 	color: var(--primary-2);
 	font-family: "Raleway Variable", sans-serif;
 	overflow-wrap: break-word;
+	text-wrap: balance;
 }
 
 h1 {
