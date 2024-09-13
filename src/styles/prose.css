@@ -5,6 +5,7 @@
 
 .proseContainer strong {
 	color: var(--primary-1);
+	font-weight: 500;
 }
 
 .proseContainer p {

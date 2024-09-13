@@ -6,7 +6,7 @@ I'm currently seeking a Spring 2025 Co-Op & a full-time position post-graduation
 engineer. For more details, <a href="/cv">view my CV</a>.
 </p>
 
-## Education / Experience
+## Education & Experience
 
 I'm a senior at the [University of Cincinnati](https://uc.edu/), pursuing a BS in IT with an expected
 graduation date in May, 2025.
