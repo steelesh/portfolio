@@ -14,13 +14,12 @@ Concentration: Software Application Development
 
 ## WORK EXPERIENCE
 
-<div style="display: flex; justify-content: space-between; align-items: center;">
-  <p style="margin-bottom: 0"><strong>Milwaukee Electric Tool, Milwaukee, Wisconsin</strong></p>
-  <em>June – August 2024</em>
+<div>
+  <h4 style="margin-bottom: 0;">Milwaukee Electric Tool, Milwaukee, Wisconsin</h4>
 </div>
 
 
-**Software Engineer Intern**
+**Software Engineer Intern (June – August 2024)**
 
 — Contributed to a software team by delivering new features, fixing bugs, and improving functionality to key projects.
 
@@ -29,12 +28,11 @@ refinements, etc.
 
 — Ensured high-quality software through comprehensive testing and code reviews within a dynamic team environment.
 
-<div style="display: flex; justify-content: space-between; align-items: center;">
-    <p style="margin-bottom: 0"><strong>183 Degrees Strategic Solutions, San Ramon, California</strong></p>  
-    <em>May – August 2023</em>
+<div>
+    <h4 style="margin-bottom: 0;">183 Degrees Strategic Solutions, San Ramon, California</h4>  
 </div>
 
-**Intern**
+**Intern (May – August 2023)**
 
 — Collaborated with ad agency’s strategist, web developer, and graphic designer to deliver digital assets.
 
@@ -96,7 +94,7 @@ Midjourney, and managed projects using Asana.
 
 ## PROJECTS
 
-**Microsoft TwoHat Website | WordPress, Elementor**
+#### Microsoft TwoHat Website | WordPress, Elementor
 
 — Crafted a dynamic landing page that utilized the Elementor builder within WordPress.
 
@@ -104,7 +102,7 @@ Midjourney, and managed projects using Asana.
 
 — Focused on optimal loading speeds and interactive elements to enhance user engagement.
 
-**Workout Logger | Spring Boot, JPA, Thymeleaf**
+#### Workout Logger | Spring Boot, JPA, Thymeleaf
 
 — Applied object-oriented programming best practices, such as modularity through interfaces and design patterns, within
 a microservices architecture to build scalable enterprise-level solutions
@@ -115,7 +113,7 @@ effective collaboration, and code reviews for maintaining code quality throughou
 — Demonstrated unit testing with continuous integration and deployment CI/CD pipelines, ensuring code stability and
 reliability.
 
-**StarBound | C#, Unity**
+#### StarBound | C#, Unity
 
 — Implemented 2D platform adventure using the Unity game engine and scripting with C#, leveraging Unity's physics engine
 for character movement and interactions.
