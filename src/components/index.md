@@ -4,8 +4,8 @@ with Go, HTMX, and PostgreSQL, but also using C#, React, and other frameworks.
 Previously at [Milwaukee Tool](https://milwaukeetool.com/) and [183](https://183degrees.com/)°
 
 <p class="highlight">
-I'm currently seeking a Spring 2025 Co-Op & a full-time position post-graduation as a software
-engineer. <a href="/contact">Reach out</a>! Or, for more details, <a href="/cv">view my CV</a>.
+I'm currently seeking a Spring 2025 Co-Op & a full-time position post-grad as a software
+engineer.<br /><br/><a href="/contact">Reach out</a>! Or, for more details, <a href="/cv">view my CV</a>.
 </p>
 
 ## Education & Experience
