@@ -72,16 +72,30 @@ const formatDate = (dateString: Date) => {
         const list = document.getElementById('notes-list')
         const links = list?.querySelectorAll('a')
 
-        links?.forEach((link) => {
-            link.addEventListener('mouseenter', () => {
-                list?.classList.add('hovered')
-                link.classList.add('active')
-            })
+        const isTouchDevice =
+            'ontouchstart' in window || navigator.maxTouchPoints > 0
 
-            link.addEventListener('mouseleave', () => {
-                list?.classList.remove('hovered')
-                link.classList.remove('active')
+        if (!isTouchDevice) {
+            links?.forEach((link) => {
+                link.addEventListener('mouseenter', () => {
+                    list?.classList.add('hovered')
+                    link.classList.add('active')
+                })
+
+                link.addEventListener('mouseleave', () => {
+                    list?.classList.remove('hovered')
+                    link.classList.remove('active')
+                })
             })
+        }
+
+        window.addEventListener('pageshow', (event) => {
+            if (event.persisted) {
+                links?.forEach((link) => {
+                    link.classList.remove('active')
+                })
+                list?.classList.remove('hovered')
+            }
         })
     })
 </script>
