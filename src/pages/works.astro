@@ -5,13 +5,17 @@ import BaseLayout from '@layouts/BaseLayout.astro'
 const workEntries = await getCollection('works')
 
 const renderedEntries = await Promise.all(
-    workEntries.map(async (entry) => {
-        const { remarkPluginFrontmatter } = await entry.render()
-        return {
-            ...entry,
-            minutesRead: remarkPluginFrontmatter.minutesRead,
-        }
-    })
+    workEntries
+        .filter((entry) =>
+            import.meta.env.PROD ? entry.data.draft !== true : true
+        )
+        .map(async (entry) => {
+            const { remarkPluginFrontmatter } = await entry.render()
+            return {
+                ...entry,
+                minutesRead: remarkPluginFrontmatter.minutesRead,
+            }
+        })
 )
 
 renderedEntries.sort(
