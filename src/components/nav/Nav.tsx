@@ -93,7 +93,7 @@ export const Nav = ({ children }: { children: React.ReactNode }) => {
         isHovered,
         idleTimeout,
         isToggled,
-        isTouchDevice, // Dependency to ensure effect runs when this changes
+        isTouchDevice,
     ])
 
     const handleToggle = () => {
