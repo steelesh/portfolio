@@ -1,34 +1,39 @@
-I build high-quality software that blends aesthetics with simplicity & usability. Mainly working on the web
-with Go, HTMX, and PostgreSQL, but also using C#, React, and other frameworks.
-
-Previously at [Milwaukee Tool](https://milwaukeetool.com/) and [183](https://183degrees.com/)°
-
-<p class="highlight">
-I'm currently seeking a Spring 2025 Co-Op & a full-time position post-grad as a software
-engineer.<br /><br/><a href="/contact">Reach out</a>! Or, for more details, <a href="/cv">view my CV</a>.
-</p>
-
-## Education & Experience
-
-I'm a senior at the [University of Cincinnati](https://uc.edu/), pursuing a BS in IT with an expected
-graduation date in May, 2025.
+I build high-quality software that blends aesthetics with simplicity & usability.
 
 In the past, I have contributed to teams at [Milwaukee Tool](https://milwaukeetool.com/)
 and [183](https://183degrees.com/)°, where I worked as a software development intern.
+<p class="highlight">
+I'm currently seeking a Spring 2025 Co-Op & a full-time position post-grad as a software
+engineer.
+
+<span style="margin-top: 1rem; display: block;">
+<a href="/contact">Reach out</a>
+<span style="margin: 0 0.5rem; font-size: var(--font-size-0-75);">or</span>
+<a href="/cv">View CV</a>.
+</span>
+</p>
+
+## Education
+
+I'm a senior at the [University of Cincinnati](https://uc.edu/), pursuing a BS in IT with an expected
+graduation date in May 2025.
+
+Within IT, I specialize in Application Software Development. My curriculum is heavily centered on programming and
+software engineering.
 
 ## Skills
 
-Through previous work experience, I've gained a broad perspective writing software; from designing visually-focused
+I Mainly work on the web with Go, HTMX, and PostgreSQL, but also enjoy using C#, React, and other frameworks.
+
+Through my work experience, I've gained a broad perspective writing software; from designing visually-focused
 digital marketing projects at 183°, to building large-scale enterprise applications at Milwaukee Tool.
 
-I have a strong knowledge of the web, with a solid grasp of both the fundamentals and some modern frameworks. Through my
-experience and the courses I've completed, I've developed a comprehensive understanding of these technologies:
+Through my internship experience and college coursework, I've developed a comprehensive understanding of
+the following technologies:
 
-- Backend: Go, Node (Express), C# (NET Core), Java (Spring Boot)
-- Frontend: React, HTMX, Vue
-- Database: PostgreSQL, MongoDB
-
-[//]: # (My go-to tech stack is Go + HTMX for full-stack web apps, and Astro for static sites.)
+- **Backend**: Go, C# (NET Core), Java (Spring Boot)
+- **Frontend**: React, HTMX, Tailwind, Vite
+- **Database**: PostgreSQL, MongoDB
 
 ## Talk to Me
 

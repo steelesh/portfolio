@@ -1,5 +1,5 @@
 ---
-import portrait from '@assets/portrait.png'
+import portrait from '@assets/animated-portrait.png'
 import '@styles/code.css'
 import '@styles/prose.css'
 import { Image } from 'astro:assets'
@@ -12,7 +12,7 @@ import BaseLayout from '@layouts/BaseLayout.astro'
         <div>
             <h1>
                 Hey, I'm Steele,
-                <span>Software Engineer</span>
+                <span>Software Engineer.</span>
             </h1>
             <Image src={portrait} alt="Portrait of Steele Shreve" />
         </div>
@@ -33,7 +33,6 @@ import BaseLayout from '@layouts/BaseLayout.astro'
         display: flex;
         align-items: center;
         justify-content: space-between;
-        //gap: 6rem;
         margin-bottom: 4rem;
     }
 
@@ -50,14 +49,18 @@ import BaseLayout from '@layouts/BaseLayout.astro'
         height: 8rem;
         filter: grayscale(100%);
         border-radius: 20%;
-        background-color: var(--primary-9);
         border: 1px solid var(--primary-1);
         margin-bottom: 1rem;
-        transition: filter 0.3s ease-in-out;
+        animation: removeFilter 5s ease-in-out forwards;
     }
 
-    img:hover {
-        filter: grayscale(0);
+    @keyframes removeFilter {
+        0% {
+            filter: grayscale(100%);
+        }
+        100% {
+            filter: grayscale(0);
+        }
     }
 
     @media (max-width: 768px) {
