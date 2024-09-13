@@ -32,4 +32,4 @@ experience and the courses I've completed, I've developed a comprehensive unders
 
 ## Talk to Me
 
-Interested in working together or want to connect? [Contact Me](/contact).
+Interested in working together or want to connect? [Get in touch](/contact).
