@@ -1,7 +1,6 @@
 .subNavLinks {
 	align-items: center;
 	display: flex;
-	font-weight: var(--font-weight-bold);
 	gap: 0.5rem;
 
 	margin-top: 1rem;
