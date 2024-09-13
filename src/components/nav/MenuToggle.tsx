@@ -13,6 +13,7 @@ export const MenuToggle = ({
         width="1em"
         height="1em"
         viewBox="0 0 16 16"
+        style={{ cursor: 'pointer' }}
     >
         <motion.g
             fill="var(--primary-1)"

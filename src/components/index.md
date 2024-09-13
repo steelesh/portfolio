@@ -1,9 +1,11 @@
-I'm a full-stack software engineer from Cincinnati, OH, driven by aesthetics and simplicity. I focus on
-building high-quality software that merges sleek design with practical usability.
+I build high-quality software that blends aesthetics with simplicity & usability. Mainly working on the web
+with Go, HTMX, and PostgreSQL, but also using C#, React, and other frameworks.
+
+Previously at [Milwaukee Tool](https://milwaukeetool.com/) and [183](https://183degrees.com/)°
 
 <p class="highlight">
 I'm currently seeking a Spring 2025 Co-Op & a full-time position post-graduation as a software
-engineer. For more details, <a href="/cv">view my CV</a>.
+engineer. <a href="/contact">Reach out</a>! Or, for more details, <a href="/cv">view my CV</a>.
 </p>
 
 ## Education & Experience

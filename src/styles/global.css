@@ -70,6 +70,7 @@ html {
 body {
 	background-color: var(--primary-10);
 	color: var(--primary-4);
+	cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' width='20' height='20'><circle cx='8' cy='8' r='4' fill='#FF4500'/></svg>") 8 8, auto !important;
 	font-family: "Open Sans Variable", sans-serif;
 	font-size: var(--base-font-size);
 	font-style: normal;
