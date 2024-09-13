@@ -1,0 +1,135 @@
+---
+import { getCollection } from 'astro:content'
+import BaseLayout from '@layouts/BaseLayout.astro'
+
+const noteEntries = await getCollection('notes')
+
+const renderedEntries = await Promise.all(
+    noteEntries.map(async (entry) => {
+        const { remarkPluginFrontmatter } = await entry.render()
+        return {
+            ...entry,
+            minutesRead: remarkPluginFrontmatter.minutesRead,
+        }
+    })
+)
+
+renderedEntries.sort(
+    (a, b) =>
+        new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+)
+
+const pageTitle = 'Steele Shreve - Notes'
+
+const formatDate = (dateString: Date) => {
+    const date = new Date(dateString)
+    return date.toLocaleDateString('en-US', {
+        month: 'short',
+        day: 'numeric',
+        year: 'numeric',
+    })
+}
+---
+
+<BaseLayout pageTitle={pageTitle}>
+    <section class="slide-enter-content">
+        <h1>Notes</h1>
+        <p>
+            My collection of random thoughts and posts. Mostly related to
+            programming and web development.
+        </p>
+
+        <ul id="notes-list">
+            {
+                renderedEntries.map((entry) => (
+                    <li>
+                        <a href={`notes/${entry.slug}`}>
+                            <span class="title">
+                                {entry.data.title}
+                                {entry.minutesRead && (
+                                    <span class="meta">
+                                        &bull; {entry.minutesRead} min read
+                                    </span>
+                                )}
+                            </span>
+                            <span class="meta">
+                                {formatDate(entry.data.pubDate)}
+                            </span>
+                        </a>
+                    </li>
+                ))
+            }
+        </ul>
+    </section>
+</BaseLayout>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const list = document.getElementById('notes-list')
+        const links = list?.querySelectorAll('a')
+
+        links?.forEach((link) => {
+            link.addEventListener('mouseenter', () => {
+                list?.classList.add('hovered')
+                link.classList.add('active')
+            })
+
+            link.addEventListener('mouseleave', () => {
+                list?.classList.remove('hovered')
+                link.classList.remove('active')
+            })
+        })
+    })
+</script>
+
+<style scoped>
+    h1,
+    p {
+        margin-bottom: 1.5rem;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    a {
+        display: flex;
+        border-radius: 0.5rem;
+        background-color: var(--primary-9-5);
+        margin-bottom: 0.75rem;
+        padding: 0.5rem 1rem;
+        align-items: center;
+        text-decoration: none;
+        justify-content: space-between;
+        transition: color 0.3s ease;
+        color: var(--primary-1);
+        border: 1px solid transparent;
+    }
+
+    .title {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .meta {
+        color: var(--primary-7);
+        font-size: var(--font-size-0-75);
+        transition: color 0.3s ease;
+    }
+
+    ul.hovered a.active .meta {
+        color: var(--primary-1);
+    }
+
+    ul.hovered a {
+        color: var(--primary-7);
+    }
+
+    ul.hovered a.active {
+        border-color: var(--primary-9);
+        color: var(--primary-1);
+    }
+</style>

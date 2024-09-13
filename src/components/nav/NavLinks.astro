@@ -1,0 +1,42 @@
+---
+import { NavLink } from '@components/nav/NavLink'
+import styles from '@styles/modules/navigation-links.module.css'
+import { SubNavLinks } from '@components/nav/SubNavLinks'
+
+const pathname = new URL(Astro.request.url).pathname
+const currentPath = pathname.slice(1)
+---
+
+<NavLink
+    href="/"
+    iconName="home"
+    iconSize="md"
+    iconColor="var(--primary-1)"
+    label="Home"
+    additionalClass={currentPath === '' ? styles.active : ''}
+/>
+<NavLink
+    href="/works"
+    iconName="work"
+    iconSize="md"
+    iconColor="var(--primary-1)"
+    label="Works"
+    additionalClass={currentPath === 'works' ? styles.active : ''}
+/>
+<NavLink
+    href="/notes"
+    iconName="notes"
+    iconSize="md"
+    iconColor="var(--primary-1)"
+    label="Notes"
+    additionalClass={currentPath === 'notes' ? styles.active : ''}
+/>
+<NavLink
+    href="/cv"
+    iconName="cv"
+    iconSize="md"
+    iconColor="var(--primary-1)"
+    label="View CV"
+    additionalClass={currentPath === 'cv' ? styles.active : ''}
+/>
+<SubNavLinks />

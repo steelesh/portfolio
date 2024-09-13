@@ -1,0 +1,82 @@
+.header {
+	margin-bottom: 12rem;
+}
+
+@media (max-width: 768px) {
+	.header {
+		margin-bottom: 10rem;
+	}
+}
+
+.nav {
+	align-items: center;
+	background-color: var(--primary-9-5);
+	border-radius: 0.75rem;
+	box-shadow: 0 2px 2px var(--primary-1);
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+
+	left: 1rem;
+	margin: 1rem auto;
+	max-width: 28rem;
+
+	padding: 1rem;
+
+	position: fixed;
+	right: 1rem;
+	transition: all 0.3s;
+
+	z-index: 20;
+}
+
+.navVisible {
+	transform: translateY(0);
+}
+
+.navHidden {
+	transform: translateY(-3.5rem);
+}
+
+.navContainer {
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
+
+	padding: 0 0.75rem;
+	width: 100%;
+}
+
+.navLogo {
+	color: var(--primary-1);
+	font-weight: var(--font-weight-bold);
+}
+
+.scrollBlurOverlay {
+	backdrop-filter: blur(4px);
+	height: 4rem;
+	left: 0;
+	mask: linear-gradient(black, black, transparent);
+	position: fixed;
+
+	right: 0;
+
+	top: 0;
+
+	z-index: 10;
+}
+
+.navLinks {
+	align-items: center;
+	background-color: var(--primary-9);
+	border-radius: 0.5rem;
+	display: flex;
+	flex-direction: column;
+
+	gap: 0.25rem;
+	margin-top: 0;
+
+	overflow: hidden;
+	width: 100%;
+}

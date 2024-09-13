@@ -1,0 +1,20 @@
+.bodyBlurOverlay {
+	position: fixed;
+	z-index: 10;
+	inset: 0;
+
+	background-color: transparent;
+	backdrop-filter: blur(8px);
+
+	transition: opacity 0.5s;
+}
+
+.pointerEventsAuto {
+	pointer-events: auto;
+	opacity: 1;
+}
+
+.pointerEventsNone {
+	pointer-events: none;
+	opacity: 0;
+}

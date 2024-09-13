@@ -1,0 +1,204 @@
+@font-face {
+	font-family: "Geist";
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+	src: url("/fonts/GeistVF.woff") format("woff");
+}
+
+@font-face {
+	font-family: "Geist";
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+	src: url("/fonts/GeistVF.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Newsreader";
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+	src: url("/fonts/Newsreader16pt-Regular.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Newsreader Italic";
+	font-weight: normal;
+	font-style: italic;
+	font-display: swap;
+	src: url("/fonts/Newsreader16pt-Italic.woff2") format("woff2");
+}
+
+:root {
+	--primary-1: #000000;
+	--primary-10: #ffffff;
+	--primary-2: #1c1c1c;
+	--primary-3: #383838;
+	--primary-4: #555555;
+	--primary-5: #717171;
+	--primary-6: #8d8d8d;
+	--primary-7: #aaaaaa;
+	--primary-8: #c6c6c6;
+	--primary-8-5: #d4d4d4;
+	--primary-9: #e3e3e3;
+	--primary-9-5: #f1f1f1;
+
+	--accent-bg: rgba(255, 69, 0, 0.1);
+	--border-color: var(--primary-7);
+
+	--border-color-hover: var(--primary-1);
+	--accent-fg: #FF4500;
+
+	--base-font-size: var(--font-size-2);
+	--line-height-1: 1.2; /* Tighter line height for headings */
+	--line-height-2: 1.4; /* Moderate line height for body text */
+
+	--line-height-3: 1.6; /* Loose line height for small text */
+	--line-height-4: 1.75; /* Loose line height for small text */
+	--base-line-height: var(--line-height-2);
+
+	--font-size-0-5: 0.625rem; /* 10px - Smallest, use for captions or small text */
+	--font-size-0-75: 0.75rem; /* 12px - Smallest, use for captions or small text */
+	--font-size-1: 0.875rem; /* 14px - Smallest, use for captions or small text */
+	--font-size-10: 5.768rem; /* 88px - Very large display text */
+	--font-size-2: 1rem; /* 16px - Base body text */
+	--font-size-3: 1.25rem; /* 20px - Larger body text, subheadings */
+	--font-size-4: 1.563rem; /* 25px - Headings */
+	--font-size-5: 1.953rem; /* 31px - Main headings */
+	--font-size-6: 2.441rem; /* 39px - Section headings */
+	--font-size-7: 3.052rem; /* 49px - Page titles */
+	--font-size-8: 3.815rem; /* 61px - Large display text */
+	--font-size-9: 4.768rem; /* 76px - Hero text or very large display text */
+
+	--font-weight-bold: 700;
+	--font-weight-medium: 500;
+	--font-weight-normal: 400;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--primary-1: #ffffff;
+		--primary-10: #000000;
+		--primary-2: #e3e3e3;
+		--primary-3: #c6c6c6;
+		--primary-4: #aaaaaa;
+		--primary-5: #8d8d8d;
+		--primary-6: #717171;
+		--primary-7: #555555;
+		--primary-8: #383838;
+		--primary-8-5: #2a2a2a;
+		--primary-9: #1c1c1c;
+		--primary-9-5: #0e0e0e;
+	}
+}
+
+html {
+	font-family: "Geist", sans-serif;
+	font-size: var(--base-font-size);
+	line-height: var(--line-height-4);
+	overflow-x: hidden;
+	scroll-behavior: smooth;
+}
+
+body {
+	background-color: var(--primary-10);
+	color: var(--primary-4);
+	-webkit-font-smoothing: antialiased;
+	overflow-x: hidden;
+}
+
+#content {
+	display: flex;
+	flex-direction: column;
+	margin: 0 auto;
+	max-width: 48rem;
+	min-height: 100vh;
+	padding: 0 1rem;
+}
+
+@media (min-width: 768px) {
+	#content {
+		padding: 0 2rem;
+	}
+}
+
+::selection {
+	background-color: var(--accent-bg);
+	color: var(--accent-fg);
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+	display: block;
+	max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+	font: inherit;
+}
+
+p {
+	overflow-wrap: break-word;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: var(--primary-2);
+	overflow-wrap: break-word;
+}
+
+h1 {
+	font-size: var(--font-size-7);
+	line-height: var(--line-height-1);
+}
+
+h2 {
+	font-size: var(--font-size-6);
+	line-height: var(--line-height-1);
+}
+
+h3 {
+	font-size: var(--font-size-5);
+	line-height: var(--line-height-1);
+}
+
+h4 {
+	font-size: var(--font-size-4);
+	line-height: var(--line-height-1);
+}
+
+h5 {
+	font-size: var(--font-size-3);
+	line-height: var(--base-line-height);
+}
+
+h6 {
+	font-size: var(--base-font-size);
+	line-height: var(--base-line-height);
+}
+
+a,
+a:link,
+a:visited,
+a:hover,
+a:active {
+	text-decoration: inherit;
+}

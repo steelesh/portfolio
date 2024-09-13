@@ -1,0 +1,28 @@
+---
+import '@styles/global.css'
+import { Nav } from '@components/nav/Nav'
+import Footer from '@components/Footer.astro'
+import NavLinks from '@components/nav/NavLinks.astro'
+
+const { pageTitle } = Astro.props
+---
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{pageTitle}</title>
+        <script src="./../util/copyCodeButtonHandler.js"></script>
+    </head>
+    <body>
+        <div id="content">
+            <Nav client:load>
+                <NavLinks />
+            </Nav>
+            <main>
+                <slot />
+            </main>
+        </div>
+        <Footer />
+    </body>
+</html>

@@ -1,0 +1,47 @@
+---
+import Content from '@components/cv.md'
+import '@styles/prose.css'
+import '@styles/cv.css'
+import BaseLayout from '../layouts/BaseLayout.astro'
+---
+
+<BaseLayout pageTitle="Steele Shreve - Home">
+    <section class="slide-enter-content">
+        <h1>Steele Shreve — CV</h1>
+        <a href="/robots.txt" download>
+            <button>Download PDF</button>
+        </a>
+        <div class="cv-container proseContainer">
+            <Content />
+        </div>
+    </section>
+</BaseLayout>
+
+<style scoped>
+    section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    h1 {
+        font-size: var(--font-size-4);
+        text-align: center;
+    }
+
+    button {
+        background-color: var(--primary-1);
+        color: var(--primary-10);
+        border: 1px solid var(--primary-8);
+        padding: 0.25rem 1.5rem;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        width: max-content;
+        transition: background-color 0.3s ease-in-out;
+    }
+
+    button:hover {
+        background-color: var(--accent-fg);
+    }
+</style>

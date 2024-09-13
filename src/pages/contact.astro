@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import '@styles/prose.css'
+import { Content } from '@components/contact.md'
+---
+
+<BaseLayout>
+    <section>
+        <div>
+            <h1>
+                Let's connect!
+                <span>Send me a message</span>
+            </h1>
+        </div>
+        <div class="proseContainer">
+            <Content />
+        </div>
+    </section>
+</BaseLayout>
+
+<style scoped>
+    section > div:last-child {
+        display: flex;
+        flex-direction: column;
+    }
+
+    h1 {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        font-size: var(--font-size-7);
+        margin-bottom: 1.5rem;
+    }
+
+    h1 > span {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        color: var(--primary-6);
+        font-family: 'Newsreader Italic', serif;
+    }
+
+    p {
+        margin-bottom: 1.5rem;
+    }
+</style>
