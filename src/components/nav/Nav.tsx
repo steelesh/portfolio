@@ -3,6 +3,9 @@ import { BodyBlurOverlay } from '@components/overlay/Overlay.tsx'
 import { MenuToggle } from '@components/nav/MenuToggle.tsx'
 import { motion } from 'framer-motion'
 import React, { useEffect, useRef, useState } from 'react'
+import { SearchToggle } from '@components/nav/SearchToggle.tsx'
+import { Icon } from '@components/icon/Icon.tsx'
+import { isSearchModalOpen } from '../../searchStore'
 
 export const Nav = ({ children }: { children: React.ReactNode }) => {
     const [isVisible, setIsVisible] = useState(true)
@@ -14,10 +17,13 @@ export const Nav = ({ children }: { children: React.ReactNode }) => {
     const [isToggled, setIsToggled] = useState(false)
     const navRef = useRef<HTMLButtonElement>(null)
     const SCROLL_THRESHOLD = 30
-    const [isTouchDevice, setIsTouchDevice] = useState(false) // State for touch device detection
+    const [isTouchDevice, setIsTouchDevice] = useState(false)
+
+    const openSearchModal = () => {
+        isSearchModalOpen.set(true)
+    }
 
     useEffect(() => {
-        // Check if running on the client side
         if (typeof window !== 'undefined') {
             setIsTouchDevice(
                 'ontouchstart' in window || navigator.maxTouchPoints > 0
@@ -136,12 +142,23 @@ export const Nav = ({ children }: { children: React.ReactNode }) => {
             >
                 <div className={styles.navContainer}>
                     <a href="/" className={styles.navLogo}>
-                        Steele S.
+                        Steele Shreve
                     </a>
-                    <MenuToggle
-                        isToggled={isToggled}
-                        handleToggle={handleToggle}
-                    />
+                    <div className={styles.iconContainer}>
+                        <div onClick={openSearchModal}>
+                            <SearchToggle />
+                        </div>
+                        <span
+                            className={styles.searchIconMobile}
+                            onClick={openSearchModal}
+                        >
+                            <Icon name="search" color="var(--primary-1)" />
+                        </span>
+                        <MenuToggle
+                            isToggled={isToggled}
+                            handleToggle={handleToggle}
+                        />
+                    </div>
                 </div>
                 <motion.div
                     className={styles.navLinks}

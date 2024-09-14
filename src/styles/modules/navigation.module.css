@@ -43,8 +43,26 @@
 	width: 100%;
 }
 
+.searchIconMobile {
+	display: none;
+}
+
+@media (max-width: 425px) {
+	.searchIconMobile {
+		display: block;
+	}
+}
+
+.iconContainer {
+	align-items: center;
+	display: flex;
+	gap: 1rem;
+}
+
 .navLogo {
 	color: var(--primary-1);
+	font-family: "Reenie Beanie", cursive;
+	font-size: var(--font-size-3);
 	font-weight: var(--font-weight-medium);
 }
 

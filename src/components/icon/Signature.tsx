@@ -4,8 +4,8 @@ export const Signature = () => (
         fill="none"
         stroke="var(--primary-1)"
         xmlns="http://www.w3.org/2000/svg"
-        width="3rem"
-        height="3rem"
+        width="2.5rem"
+        height="2.5rem"
     >
         <style>
             {`
@@ -17,26 +17,20 @@ export const Signature = () => (
         }
 
         .animate-path {
-          stroke-width: 3;
+          stroke-width: 4;
           stroke-linecap: round;
           transform-origin: center;
           stroke-dasharray: 1494.15;
           stroke-dashoffset: 1494.15;
-          animation: draw-pause-erase 10s ease-in-out forwards infinite;
+          animation: draw 3s ease-in-out forwards;
         }
 
-        @keyframes draw-pause-erase {
+        @keyframes draw {
           0% {
             stroke-dashoffset: 1494.15;
           }
-          30% {
-            stroke-dashoffset: 0;
-          }
-          80% {
-            stroke-dashoffset: 0;
-          }
           100% {
-            stroke-dashoffset: 1494.15;
+            stroke-dashoffset: 0;
           }
         }
       `}

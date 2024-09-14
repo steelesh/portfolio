@@ -22,6 +22,7 @@ export const Icon: React.FC<IconProps> = ({
             width={iconSize}
             height={iconSize}
             viewBox="0 0 24 24"
+            style={{ cursor: 'pointer' }}
         >
             {iconPath}
         </svg>

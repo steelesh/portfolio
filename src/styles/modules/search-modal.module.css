@@ -1,0 +1,39 @@
+.modalOverlay {
+	align-items: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	bottom: 0;
+	display: flex;
+	justify-content: center;
+	left: 0;
+	position: fixed;
+	right: 0;
+	top: 0;
+	z-index: 1000;
+}
+
+.modalContent {
+	background-color: #fff;
+	border-radius: 8px;
+	max-height: 90vh;
+	max-width: 800px;
+	overflow-y: auto;
+	padding: 2rem;
+	width: 100%;
+}
+
+.searchResults {
+	margin-top: 1rem;
+}
+
+.searchResult {
+	margin-bottom: 1rem;
+}
+
+.searchResult a {
+	font-size: 1.2rem;
+	font-weight: bold;
+}
+
+.searchResult p {
+	color: #555;
+}
