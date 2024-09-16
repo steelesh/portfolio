@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "My Second Blog Post"
 pubDate: 2022-07-08
 description: "After learning some Astro, I couldn't stop!"

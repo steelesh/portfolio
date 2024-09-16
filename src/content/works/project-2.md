@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "Project 2"
 pubDate: 2022-07-01
 description: "This is another one of my side projects."
