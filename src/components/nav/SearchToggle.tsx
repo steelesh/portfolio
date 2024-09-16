@@ -16,9 +16,5 @@ export const SearchToggle = () => (
             </svg>
             <span className={styles.searchText}>Search...</span>
         </div>
-        <span className={styles.keyboardShortcut}>
-            <kbd>&#8984;</kbd>
-            <kbd>K</kbd>
-        </span>
     </div>
 )

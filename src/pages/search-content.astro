@@ -1,0 +1,52 @@
+---
+import Search from 'astro-pagefind/components/Search'
+import BaseLayout from '../layouts/BaseLayout.astro'
+
+const pageTitle = 'Steele Shreve - Search'
+---
+
+<BaseLayout pageTitle={pageTitle}>
+    <section class="slide-enter-content">
+        <div>
+            <h1>
+                Search for content
+                <span>Find what you're looking for.</span>
+            </h1>
+        </div>
+        <Search
+            id="search"
+            className="pagefind-ui"
+            uiOptions={{ showImages: false }}
+        />
+    </section>
+</BaseLayout>
+
+<style is:global>
+    h1 {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        font-size: var(--font-size-6);
+        margin-bottom: 1.5rem;
+    }
+
+    h1 > span {
+        align-items: center;
+        gap: 1.5rem;
+        color: var(--primary-6);
+        font-family: 'Reenie Beanie', cursive;
+        display: flex;
+    }
+
+    @media (max-width: 425px) {
+        h1 > span {
+            display: none;
+        }
+    }
+
+    .pagefind-ui__search-input::placeholder {
+        color: var(--primary-4) !important;
+        opacity: 1 !important;
+        font-weight: var(--font-weight-medium);
+    }
+</style>

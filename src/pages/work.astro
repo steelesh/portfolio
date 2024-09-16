@@ -23,7 +23,7 @@ renderedEntries.sort(
         new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
 )
 
-const pageTitle = 'Steele Shreve - Works'
+const pageTitle = 'Steele Shreve - Work'
 
 const formatDate = (dateString: Date) => {
     const date = new Date(dateString)
@@ -37,13 +37,14 @@ const formatDate = (dateString: Date) => {
 
 <BaseLayout pageTitle={pageTitle}>
     <section class="slide-enter-content">
-        <h1>Works</h1>
+        <h1>Work</h1>
         <p>My collection of side projects and freelance work.</p>
-        <ul>
+
+        <ul id="work-list">
             {
                 renderedEntries.map((entry) => (
                     <li>
-                        <a href={`/works/${entry.slug}`}>
+                        <a href={`/work/${entry.slug}`}>
                             <span class="title">
                                 {entry.data.title}
                                 {entry.minutesRead && (
@@ -65,19 +66,33 @@ const formatDate = (dateString: Date) => {
 
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-        const list = document.getElementById('notes-list')
+        const list = document.getElementById('work-list')
         const links = list?.querySelectorAll('a')
 
-        links?.forEach((link) => {
-            link.addEventListener('mouseenter', () => {
-                list?.classList.add('hovered')
-                link.classList.add('active')
-            })
+        const isTouchDevice =
+            'ontouchstart' in window || navigator.maxTouchPoints > 0
 
-            link.addEventListener('mouseleave', () => {
-                list?.classList.remove('hovered')
-                link.classList.remove('active')
+        if (!isTouchDevice) {
+            links?.forEach((link) => {
+                link.addEventListener('mouseenter', () => {
+                    list?.classList.add('hovered')
+                    link.classList.add('active')
+                })
+
+                link.addEventListener('mouseleave', () => {
+                    list?.classList.remove('hovered')
+                    link.classList.remove('active')
+                })
             })
+        }
+
+        window.addEventListener('pageshow', (event) => {
+            if (event.persisted) {
+                links?.forEach((link) => {
+                    link.classList.remove('active')
+                })
+                list?.classList.remove('hovered')
+            }
         })
     })
 </script>
@@ -97,15 +112,26 @@ const formatDate = (dateString: Date) => {
     a {
         display: flex;
         border-radius: 0.5rem;
-        background-color: var(--primary-9-5);
         margin-bottom: 0.75rem;
-        padding: 0.5rem 1rem;
         align-items: center;
         text-decoration: none;
         justify-content: space-between;
         transition: color 0.3s ease;
         color: var(--primary-1);
-        border: 1px solid var(--primary-9);
+    }
+
+    @media (hover: none) and (pointer: coarse) {
+        a {
+            background-color: var(--primary-9-5);
+            border: 1px solid var(--primary-9);
+            padding: 0.5rem 1rem;
+        }
+    }
+
+    @media (max-width: 425px) {
+        .meta:first-child {
+            display: none;
+        }
     }
 
     .title {

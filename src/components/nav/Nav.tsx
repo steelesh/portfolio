@@ -5,7 +5,6 @@ import { motion } from 'framer-motion'
 import React, { useEffect, useRef, useState } from 'react'
 import { SearchToggle } from '@components/nav/SearchToggle.tsx'
 import { Icon } from '@components/icon/Icon.tsx'
-import { isSearchModalOpen } from '../../searchStore'
 
 export const Nav = ({ children }: { children: React.ReactNode }) => {
     const [isVisible, setIsVisible] = useState(true)
@@ -18,10 +17,6 @@ export const Nav = ({ children }: { children: React.ReactNode }) => {
     const navRef = useRef<HTMLButtonElement>(null)
     const SCROLL_THRESHOLD = 30
     const [isTouchDevice, setIsTouchDevice] = useState(false)
-
-    const openSearchModal = () => {
-        isSearchModalOpen.set(true)
-    }
 
     useEffect(() => {
         if (typeof window !== 'undefined') {
@@ -145,15 +140,15 @@ export const Nav = ({ children }: { children: React.ReactNode }) => {
                         Steele Shreve
                     </a>
                     <div className={styles.iconContainer}>
-                        <div onClick={openSearchModal}>
+                        <a href="/search-content">
                             <SearchToggle />
-                        </div>
-                        <span
+                        </a>
+                        <a
+                            href="/search-content"
                             className={styles.searchIconMobile}
-                            onClick={openSearchModal}
                         >
                             <Icon name="search" color="var(--primary-1)" />
-                        </span>
+                        </a>
                         <MenuToggle
                             isToggled={isToggled}
                             handleToggle={handleToggle}

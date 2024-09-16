@@ -58,6 +58,11 @@
 		--primary-8-5: #2a2a2a;
 		--primary-9: #1c1c1c;
 		--primary-9-5: #0e0e0e;
+
+		/*	Search component styles	*/
+		--pagefind-ui-background: var(--primary-9-5);
+		--pagefind-ui-border: var(--primary-9);
+		--pagefind-ui-text: var(--primary-1);
 	}
 }
 
