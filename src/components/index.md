@@ -6,7 +6,7 @@ and [183](https://183degrees.com/)°, where I worked as a software development i
 I'm currently seeking SWE internship opportunities for Spring 2025.
 
 <span style="margin-top: 1rem; display: block;">
-<a href="/contact">Reach out</a>
+<a href="/contact">Contact me</a>
 <span style="margin: 0 0.5rem; font-size: var(--font-size-0-75);">or</span>
 <a href="/cv">View CV</a>
 </span>
