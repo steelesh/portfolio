@@ -27,10 +27,10 @@ I Mainly work on the web with Go, HTMX, and PostgreSQL, but also enjoy using C#,
 Through internship experience and college coursework, I've developed a comprehensive understanding of
 the following technologies:
 
-- **Backend**: Go, C# (NET Core), Java (Spring Boot)
+- **Backend**: Go, C# (NET Core), TypeScript, Java (Spring Boot)
 - **Frontend**: React, HTMX, Tailwind, Vite
 - **Database**: PostgreSQL, MongoDB
 
 ## Talk to Me
 
-Interested in working together or want to connect? [Get in touch](/contact).
+Interested in working together or want to connect? [Get in touch](/src/components/fragmentsnts/contact.md).
