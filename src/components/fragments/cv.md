@@ -1,16 +1,16 @@
 ## EDUCATION
 
 **University of Cincinnati, Cincinnati, Ohio**  
-Anticipated Graduation: May 2025  
+Anticipated Graduation: May 2025
 **Bachelor of Science: Information Technology (IT)**  
 Concentration: Software Application Development
 
 ## SKILLS
 
-- **Languages:** Go, JavaScript, C#, Java.
-- **Frameworks and Libraries:** HTMX, React, NET Core, Spring Boot.
-- **Databases:** PostgreSQL, MySQL, MongoDB.
-- **DevOps:** Git, Azure, Docker, CI/CD.
+- **Languages:** C#, Java, TypeScript, Go
+- **Frameworks and Libraries:** NET Core, React, Spring Boot, HTMX
+- **Database:** SQL, MongoDB
+- **DevOps:** Git, Azure, Docker
 
 ## WORK EXPERIENCE
 
