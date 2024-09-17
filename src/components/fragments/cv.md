@@ -42,56 +42,6 @@ JavaScript.
 — Gained proficiency in AI tools, such as ChatGPT, and AI-driven web design tools, including GitHub Copilot and
 Midjourney, and managed projects using Asana.
 
-[//]: # (<div class="flex justify-between items-center">)
-
-[//]: # (<p><strong>Cooper Ridge Construction LLC, Zanesville, Ohio</strong></p>)
-
-[//]: # (<em>December 2018 – July 2020</em>)
-
-[//]: # (</div>)
-
-[//]: # ()
-
-[//]: # (**Construction Apprentice**)
-
-[//]: # ()
-
-[//]: # (— Poured concrete foundations for industrial sites and home remodeling projects for residential properties.)
-
-[//]: # ()
-
-[//]: # (— Combined experiences reinforced my passion for building from the ground up, while emphasizing the importance of)
-
-[//]: # (attention to detail, teamwork, and mentors.)
-
-[//]: # ()
-
-[//]: # (— Designed modern business logo that respected Cooper Ridge's values by preserving its well-known business name.)
-
-[//]: # ()
-
-[//]: # (<div class="flex justify-between items-center">)
-
-[//]: # (<p><strong>Maxwell's Pizza, Zanesville, Ohio</strong></p>)
-
-[//]: # (<em>September 2018 – November 2019</em>)
-
-[//]: # (</div>)
-
-[//]: # ()
-
-[//]: # (**Drive Thru Order Taker**)
-
-[//]: # ()
-
-[//]: # (— Provided excellent service to customers in a fast paced environment.)
-
-[//]: # ()
-
-[//]: # (— Efficiently managed a variety of tasks including inventory stocking, maintaining cleanliness, and engaging in customer)
-
-[//]: # (interactions.)
-
 ## PROJECTS
 
 #### Microsoft TwoHat Website | WordPress, Elementor
