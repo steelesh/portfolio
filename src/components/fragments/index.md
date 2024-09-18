@@ -28,9 +28,9 @@ with C#, React, TypeScript, and MSSQL.
 Through internship experience and college coursework, I've developed a comprehensive understanding of
 the following technologies:
 
-- **Backend**: Go, C# (NET Core), TypeScript, Java (Spring Boot)
+- **Backend**: C# (NET Core), Java (Spring Boot), TypeScript, Go
 - **Frontend**: React, HTMX, Tailwind, Vite
-- **Database**: PostgreSQL, MongoDB
+- **Database**: SQL, MongoDB
 
 ## Talk to Me
 
