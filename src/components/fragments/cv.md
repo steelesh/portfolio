@@ -18,7 +18,7 @@ Concentration: Software Application Development
 ## WORK EXPERIENCE
 
 <div>
-  <h4 style="margin-bottom: 0;">Milwaukee Electric Tool, Milwaukee, Wisconsin</h4>
+  <h4 style="margin-bottom: 0;">Milwaukee Electric Tool<span style="font-weight: normal; font-size: var(--font-size-0-75)"> | <i>Milwaukee, Wisconsin</i></span></h4>
 </div>
 
 
@@ -32,7 +32,7 @@ refinements, etc.
 — Ensured high-quality software through comprehensive testing and code reviews within a dynamic team environment.
 
 <div>
-    <h4 style="margin-bottom: 0;">183 Degrees Strategic Solutions, San Ramon, California</h4>  
+    <h4 style="margin-bottom: 0;">183 Degrees Strategic Solutions<span style="font-weight: normal; font-size: var(--font-size-0-75)"> | <i>San Ramon, California</i></span></h4>  
 </div>
 
 **Intern (May – August 2023)**
@@ -47,7 +47,7 @@ Midjourney, and managed projects using Asana.
 
 ## PROJECTS
 
-#### Microsoft TwoHat Website | WordPress, Elementor
+#### Microsoft TwoHat Website<span style="font-weight: normal; font-size: var(--font-size-0-75)">| <i>WordPress, Elementor</i></span>
 
 — Crafted a dynamic landing page that utilized the Elementor builder within WordPress.
 
@@ -55,7 +55,7 @@ Midjourney, and managed projects using Asana.
 
 — Focused on optimal loading speeds and interactive elements to enhance user engagement.
 
-#### Workout Logger | Spring Boot, JPA, Thymeleaf
+#### Workout Logger<span style="font-weight: normal; font-size: var(--font-size-0-75)">| <i>Spring Boot, JPA, Thymeleaf</i></span>
 
 — Applied object-oriented programming best practices, such as modularity through interfaces and design patterns, within
 a microservices architecture to build scalable enterprise-level solutions
@@ -66,7 +66,7 @@ effective collaboration, and code reviews for maintaining code quality throughou
 — Demonstrated unit testing with continuous integration and deployment CI/CD pipelines, ensuring code stability and
 reliability.
 
-#### StarBound | C#, Unity
+#### StarBound<span style="font-weight: normal; font-size: var(--font-size-0-75)">| <i>C#, Unity</i></span>
 
 — Implemented 2D platform adventure using the Unity game engine and scripting with C#, leveraging Unity's physics engine
 for character movement and interactions.
@@ -77,8 +77,8 @@ for character movement and interactions.
 
 ## VOLUNTEERISM & EXTRACURRICULARS
 
-— The Salvation Army, Zanesville, Ohio 2018 – 2020
+— The Salvation Army, Zanesville, Ohio (2018 – 2020)
 
-— Investment Club, University of Cincinnati 2021 – Present
+— Investment Club, University of Cincinnati (2021 – Present)
 
-— Information Technology Student Association (ITSA), University of Cincinnati 2021 – Present
+— Information Technology Student Association (ITSA), University of Cincinnati (2021 – Present)
