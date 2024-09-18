@@ -34,4 +34,4 @@ the following technologies:
 
 ## Talk to Me
 
-Interested in working together or want to connect? [Get in touch](/src/components/fragments/contact.md).
+Interested in working together or want to connect? [Get in touch](/contact).
