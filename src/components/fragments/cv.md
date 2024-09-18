@@ -1,8 +1,11 @@
 ## EDUCATION
 
-**University of Cincinnati, Cincinnati, Ohio**  
+**University of Cincinnati, Cincinnati, Ohio**
+<br/>
 Anticipated Graduation: May 2025
-**Bachelor of Science: Information Technology (IT)**  
+<br/>
+**Bachelor of Science: Information Technology (IT)**
+<br/>
 Concentration: Software Application Development
 
 ## SKILLS
