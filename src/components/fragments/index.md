@@ -22,7 +22,8 @@ software engineering.
 
 ## Skills
 
-I Mainly work on the web with Go, HTMX, and PostgreSQL, but also enjoy using C#, React, and other frameworks.
+I enjoy web development with Go, HTMX, and PostgreSQL, but most of my experience is building full-stack web applications
+with C#, React, TypeScript, and MSSQL.
 
 Through internship experience and college coursework, I've developed a comprehensive understanding of
 the following technologies:
