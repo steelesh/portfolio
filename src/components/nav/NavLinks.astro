@@ -2,9 +2,6 @@
 import { NavLink } from '@components/nav/NavLink'
 import styles from '@styles/modules/navigation-links.module.css'
 import { SubNavLinks } from '@components/nav/SubNavLinks'
-
-const pathname = new URL(Astro.request.url).pathname
-const currentPath = pathname.slice(1)
 ---
 
 <NavLink
@@ -13,7 +10,6 @@ const currentPath = pathname.slice(1)
     iconSize="md"
     iconColor="var(--primary-1)"
     label="About"
-    additionalClass={currentPath === '' ? styles.active : ''}
 />
 <NavLink
     href="/work"
@@ -21,7 +17,6 @@ const currentPath = pathname.slice(1)
     iconSize="md"
     iconColor="var(--primary-1)"
     label="Work"
-    additionalClass={currentPath === 'work' ? styles.active : ''}
 />
 <NavLink
     href="/notes"
@@ -29,7 +24,6 @@ const currentPath = pathname.slice(1)
     iconSize="md"
     iconColor="var(--primary-1)"
     label="Notes"
-    additionalClass={currentPath === 'notes' ? styles.active : ''}
 />
 <NavLink
     href="/cv"
@@ -37,6 +31,5 @@ const currentPath = pathname.slice(1)
     iconSize="md"
     iconColor="var(--primary-1)"
     label="View CV"
-    additionalClass={currentPath === 'cv' ? styles.active : ''}
 />
 <SubNavLinks />
