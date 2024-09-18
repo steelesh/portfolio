@@ -23,7 +23,7 @@ software engineering.
 ## Skills
 
 I enjoy web development with Go, HTMX, and PostgreSQL, but most of my experience is building full-stack web applications
-with C#, React, TypeScript, and MSSQL.
+with C#, React, TypeScript, and SQL.
 
 Through internship experience and college coursework, I've developed a comprehensive understanding of
 the following technologies:
@@ -34,4 +34,4 @@ the following technologies:
 
 ## Talk to Me
 
-Interested in working together or want to connect? [Get in touch](/src/components/fragmentsnts/contact.md).
+Interested in working together or want to connect? [Get in touch](/src/components/fragments/contact.md).
