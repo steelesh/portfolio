@@ -1,0 +1,27 @@
+img {
+	border: 2px solid var(--primary-8);
+	border-radius: 0.5rem;
+	transition: border-color 0.3s ease-in-out;
+}
+
+img:hover {
+	border-color: var(--primary-1);
+}
+
+.darkOnly {
+	display: none;
+}
+
+.lightOnly {
+	display: block;
+}
+
+@media (prefers-color-scheme: dark) {
+	.lightOnly {
+		display: none;
+	}
+
+	.darkOnly {
+		display: block;
+	}
+}

@@ -68,6 +68,11 @@ p.highlight {
 	opacity: 1;
 }
 
+img {
+	height: auto;
+	max-width: 100%;
+}
+
 @media (prefers-color-scheme: dark) {
 	.astro-code :where(.astro-code, span) {
 		color: var(--shiki-dark) !important;

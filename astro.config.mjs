@@ -23,12 +23,13 @@ import {
 } from './src/util/transformers'
 import { remarkReadingTime } from './src/util/remark-reading-time.mjs'
 import pagefind from 'astro-pagefind'
+import mdx from '@astrojs/mdx'
 
 export default defineConfig({
     build: {
         format: 'file',
     },
-    integrations: [react(), pagefind()],
+    integrations: [react(), pagefind(), mdx()],
 
     markdown: {
         syntaxHighlight: 'shiki',
