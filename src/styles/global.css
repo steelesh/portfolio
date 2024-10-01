@@ -89,7 +89,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	margin: 0 auto;
-	max-width: 40rem;
+	max-width: 50rem;
 	min-height: 100vh;
 	padding: 0 1rem;
 }

@@ -7,6 +7,12 @@
 	transition: all 0.3s;
 }
 
+@media (max-width: 600px) {
+	.searchText {
+		padding-right: 2rem !important;
+	}
+}
+
 @media (max-width: 425px) {
 	.searchContainer {
 		display: none;
@@ -30,7 +36,7 @@
 .searchText {
 	color: var(--primary-4);
 	font-size: var(--font-size-0-75);
-	padding-right: 2rem;
+	padding-right: 6rem;
 	transition: color 0.3s ease;
 }
 
