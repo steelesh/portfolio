@@ -49,3 +49,10 @@
 .navlink.active svg path {
 	fill: var(--primary-10);
 }
+
+@media (max-width: 768px) {
+	.navlink {
+		font-size: var(--font-size-0-75);
+		padding: 0.75rem;
+	}
+}

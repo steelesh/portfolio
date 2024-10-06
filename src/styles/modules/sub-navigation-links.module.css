@@ -42,10 +42,6 @@
 	width: calc(100% - 0.5rem);
 }
 
-.contactLink span {
-	color: var(--primary-10);
-}
-
 .contactLink:hover {
 	background-color: var(--primary-1);
 	color: var(--bg-default);
@@ -54,4 +50,33 @@
 .contactText {
 	color: var(--primary-10);
 	font-size: var(--font-size-0-5);
+}
+
+@media (max-width: 768px) {
+	.contactLink {
+		font-size: var(--font-size-0-75);
+		padding: 0.75rem;
+	}
+
+	.availableForHire {
+		font-size: var(--font-size-0-75);
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+	.contactText {
+		color: var(--primary-1);
+	}
+
+	.contactLink:hover .contactText {
+		color: var(--primary-10);
+	}
+
+	.contactLink svg path {
+		fill: var(--primary-1);
+	}
+
+	.contactLink:hover svg path {
+		fill: var(--primary-10);
+	}
 }

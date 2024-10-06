@@ -26,6 +26,20 @@
 	}
 }
 
+@media (max-width: 768px) {
+	.nav {
+		border-radius: 0;
+		left: 0;
+		margin: 0;
+		padding: 1.25rem;
+		position: fixed;
+		right: 0;
+		top: 0;
+		width: 100%;
+	}
+}
+
+
 .navVisible {
 	opacity: 1;
 }

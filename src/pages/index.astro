@@ -1,5 +1,5 @@
 ---
-import portrait from '@assets/portrait.png'
+import animatedPortrait from '@assets/animated-portrait.png'
 import '@styles/code.css'
 import '@styles/prose.css'
 import { Image } from 'astro:assets'
@@ -14,7 +14,10 @@ import BaseLayout from '@layouts/BaseLayout.astro'
                 Hey, I'm Steele,
                 <span>Software Engineer.</span>
             </h1>
-            <Image src={portrait} alt="Portrait of Steele Shreve" />
+            <Image
+                src={animatedPortrait}
+                alt="Animated portrait of Steele Shreve"
+            />
         </div>
         <article class="proseContainer">
             <Content />
