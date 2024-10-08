@@ -19,7 +19,7 @@
     "@nanostores/react": "^0.7.3",
     "@shikijs/transformers": "^1.16.2",
     "@shikijs/twoslash": "^1.16.1",
-    "astro": "^4.15.2",
+    "astro": "^4.15.12",
     "astro-pagefind": "^1.6.0",
     "framer-motion": "^11.3.31",
     "hast-util-to-string": "^3.0.0",
