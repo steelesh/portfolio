@@ -3,8 +3,7 @@ import { NavLink } from '@components/nav/NavLink'
 import { SubNavLinks } from '@components/nav/SubNavLinks'
 import styles from '@styles/modules/navigation-links.module.css'
 
-const pathname = new URL(Astro.request.url).pathname
-const currentPath = pathname.slice(1)
+const currentPath = Astro.url.pathname.slice(1)
 ---
 
 <NavLink

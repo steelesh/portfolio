@@ -26,6 +26,7 @@ import pagefind from 'astro-pagefind'
 import mdx from '@astrojs/mdx'
 
 export default defineConfig({
+    site: 'https://steelesh.dev',
     build: {
         format: 'file',
     },
