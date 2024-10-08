@@ -54,12 +54,14 @@
 
 @media (max-width: 768px) {
 	.contactLink {
-		font-size: var(--font-size-0-75);
 		padding: 0.75rem;
 	}
+}
 
-	.availableForHire {
-		font-size: var(--font-size-0-75);
+@media (max-width: 425px) {
+	.contactLink {
+		padding-left: 0.25rem;
+		padding-right: 0.25rem;
 	}
 }
 
