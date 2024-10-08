@@ -4,8 +4,8 @@ import '@fontsource-variable/open-sans'
 import '@fontsource-variable/raleway'
 import '@fontsource/reenie-beanie'
 import { Nav } from '@components/nav/Nav'
+import { NavLinks } from '@components/nav/NavLinks'
 import Footer from '@components/Footer.astro'
-import NavLinks from '@components/nav/NavLinks.astro'
 
 const { pageTitle } = Astro.props
 ---
@@ -20,7 +20,7 @@ const { pageTitle } = Astro.props
     <body>
         <div id="content">
             <Nav client:load>
-                <NavLinks />
+                <NavLinks client:only="react" />
             </Nav>
             <main>
                 <slot />
