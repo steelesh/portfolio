@@ -20,12 +20,6 @@
 	z-index: 10;
 }
 
-@media (hover: none) and (pointer: coarse) {
-	.nav {
-		position: absolute;
-	}
-}
-
 @media (max-width: 768px) {
 	.nav {
 		border-radius: 0;
@@ -33,7 +27,6 @@
 		margin: 0;
 		max-width: 100%;
 		padding: 1.25rem;
-		position: fixed;
 		right: 0;
 	}
 }
@@ -80,6 +73,7 @@
 }
 
 .scrollBlurOverlay {
+	-webkit-backdrop-filter: blur(4px);
 	backdrop-filter: blur(4px);
 	height: 4rem;
 	left: 0;
@@ -87,9 +81,7 @@
 	position: fixed;
 	right: 0;
 	top: 0;
-
 	z-index: 10;
-
 }
 
 .navLinks {

@@ -1,4 +1,5 @@
 .bodyBlurOverlay {
+	-webkit-backdrop-filter: blur(8px);
 	backdrop-filter: blur(8px);
 	background-color: transparent;
 	inset: 0;
