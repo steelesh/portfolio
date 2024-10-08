@@ -1,12 +1,6 @@
 import type { ReactElement } from 'react'
 
 export const IconPaths: Record<string, (color: string) => ReactElement> = {
-    about: (color: string) => (
-        <path
-            fill={color}
-            d="M12 4a4 4 0 0 1 4 4a4 4 0 0 1-4 4a4 4 0 0 1-4-4a4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4"
-        ></path>
-    ),
     arrow: (color: string) => (
         <path fill={color} d="M14 16.94v-4H5.08l-.03-2.01H14V6.94l5 5Z"></path>
     ),
