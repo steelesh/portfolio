@@ -1,0 +1,136 @@
+---
+import coffee from '@assets/coffee.png'
+import '@styles/prose.css'
+import { Image } from 'astro:assets'
+import BaseLayout from '@layouts/BaseLayout.astro'
+
+const pageTitle = 'Steele - Home'
+---
+
+<BaseLayout pageTitle={pageTitle}>
+    <section class="slide-enter-content">
+        <div>
+            <h1>
+                Welcome, friend.
+                <span>I'm Steele Shreve.</span>
+            </h1>
+            <Image
+                src={coffee}
+                width="192"
+                height="192"
+                loading="eager"
+                alt="Animated photo of a cup of coffee"
+            />
+        </div>
+        <div class="proseContainer">
+            <p>
+                I'm a software engineer who builds quality software that
+                <em>blends aesthetics with simplicity & usability</em> — I design
+                for the web and for the people who use it.
+            </p>
+            <br />
+            <p>
+                I’m actively seeking Software Engineering internship
+                opportunities for Spring 2025. I'm also available for freelance
+                web development services.
+            </p>
+            <div class="cta-container">
+                <a href="/work">
+                    <button class="primary-cta-button"> See my work</button>
+                </a>
+                <a href="/contact">
+                    <button class="secondary-cta-button"> Talk to me</button>
+                </a>
+            </div>
+        </div>
+    </section>
+</BaseLayout>
+
+<style>
+    h1 {
+        display: flex;
+        flex-direction: column;
+    }
+
+    section > div:first-child {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 4rem;
+    }
+
+    h1 > span {
+        color: var(--accent-fg);
+        font-family: 'Reenie Beanie', cursive;
+    }
+
+    img {
+        width: 12rem;
+        height: 12rem;
+    }
+
+    .cta-container {
+        align-items: center;
+        display: flex;
+        gap: 1.75rem;
+        margin-top: 2rem;
+    }
+
+    .primary-cta-button {
+        background-color: var(--primary-9);
+        border: 1px solid var(--primary-8);
+        border-radius: 0.5rem;
+        color: var(--primary-4);
+        cursor: pointer;
+        padding: 0.75rem 1.5rem;
+        transition:
+            background-color 0.3s ease,
+            transform 0.3s ease;
+    }
+
+    .primary-cta-button:hover {
+        border-color: var(--accent-fg);
+        color: var(--primary-2);
+        transform: translateY(-2px);
+    }
+
+    .primary-cta-button:active {
+        transform: translateY(0);
+    }
+
+    .secondary-cta-button {
+        background: none;
+        border: none;
+        color: var(--primary-3);
+        cursor: pointer;
+        font-weight: var(--font-weight-medium);
+        padding: 0;
+        text-decoration: underline;
+        text-underline-offset: 2px;
+        transition:
+            color 0.3s ease,
+            transform 0.3s ease;
+    }
+
+    .secondary-cta-button:hover {
+        color: var(--primary-2);
+        transform: translateY(-2px);
+    }
+
+    .secondary-cta-button:active {
+        transform: translateY(0);
+    }
+
+    @media (max-width: 768px) {
+        section > div:first-child {
+            flex-direction: column-reverse;
+            align-items: flex-start;
+            gap: 2rem;
+        }
+
+        img {
+            width: 10rem;
+            height: 10rem;
+        }
+    }
+</style>

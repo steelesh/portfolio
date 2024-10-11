@@ -1,0 +1,72 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro'
+import '@styles/prose.css'
+
+const pageTitle = 'Steele - Contact'
+---
+
+<BaseLayout pageTitle={pageTitle}>
+    <section class="slide-enter-content">
+        <div>
+            <h1>
+                Let's connect!
+                <span>Send me a message.</span>
+            </h1>
+        </div>
+        <div class="proseContainer">
+            <p>
+                Whether you have a project in mind, a question, or just saying
+                what's up, go for it! The best way to reach me is by email at <a
+                    href="mailto:steeleshreve11@gmail.com"
+                    >steeleshreve11@gmail.com</a
+                >.
+            </p>
+            <p>
+                If you'd like to know more about my experience and skills, check
+                out my <a href="/cv">CV</a>
+                to see if I'm a good fit for you.
+            </p>
+            <p>
+                Also, feel free to connect with me on <a
+                    href="https://www.linkedin.com/in/steelesh/"
+                    target="_blank"
+                    rel="noopener noreferrer">LinkedIn</a
+                > or
+                <a
+                    href="https://github.com/steelesh"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    GitHub
+                </a>
+                🚀.
+            </p>
+        </div>
+    </section>
+</BaseLayout>
+
+<style>
+    section > div:last-child {
+        display: flex;
+        flex-direction: column;
+    }
+
+    h1 {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        margin-bottom: 1.5rem;
+    }
+
+    h1 > span {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        color: var(--accent-fg);
+        font-family: 'Reenie Beanie', cursive;
+    }
+
+    p {
+        margin-bottom: 1.5rem;
+    }
+</style>

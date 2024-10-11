@@ -1,0 +1,24 @@
+.cv-container {
+	background-color: var(--primary-9-5);
+	border: 1px solid var(--primary-7);
+	border-radius: 0.5rem;
+	padding: 1rem 2rem;
+}
+
+.cv-container p, li {
+	font-size: var(--font-size-0-75);
+}
+
+.cv-container h2 {
+	font-size: var(--font-size-3);
+}
+
+.cv-container h4 {
+	font-size: var(--font-size-1);
+}
+
+@media (max-width: 768px) {
+	.cv-container {
+		padding: 0.5rem;
+	}
+}

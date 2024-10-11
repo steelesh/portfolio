@@ -1,0 +1,31 @@
+---
+import { getCollection } from 'astro:content'
+import ProseLayout from '@layouts/ProseLayout.astro'
+const { entry, minutesRead } = Astro.props
+const { Content } = await entry.render()
+export async function getStaticPaths() {
+    const noteEntries = await getCollection('notes', ({ data }) => {
+        return import.meta.env.PROD ? data.draft !== true : true
+    })
+    return await Promise.all(
+        noteEntries.map(async (entry) => {
+            const { remarkPluginFrontmatter } = await entry.render()
+            return {
+                params: { slug: entry.slug },
+                props: {
+                    entry,
+                    minutesRead: remarkPluginFrontmatter.minutesRead,
+                },
+            }
+        })
+    )
+}
+---
+
+<ProseLayout transition:animate="slide" title={entry.data.title}>
+    <h1>{entry.data.title}</h1>
+    <p>
+        {new Date(entry.data.pubDate).toLocaleDateString()} &dot; {minutesRead}
+    </p>
+    <Content />
+</ProseLayout>

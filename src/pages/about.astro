@@ -1,0 +1,65 @@
+---
+import portrait from '@assets/portrait2.png'
+import '@styles/prose.css'
+import { Image } from 'astro:assets'
+import BaseLayout from '@layouts/BaseLayout.astro'
+
+const pageTitle = 'Steele - About'
+---
+
+<BaseLayout pageTitle={pageTitle}>
+    <section class="slide-enter-content proseContainer">
+        <Image
+            src={portrait}
+            width="192"
+            height="192"
+            loading="eager"
+            alt="Animated portrait of Steele"
+        />
+        <h1>Steele Shreve</h1>
+        <p>
+            I'm a senior at the <a
+                href="https://uc.edu/"
+                target="_blank"
+                rel="noopener noreferrer">University of Cincinnati</a
+            >, pursuing a BS in IT, with an expected graduation date in May
+            2025. My coursework is focused on programming and software
+            engineering, and I’ve had the chance to apply what I’ve learned
+            during internships at <a
+                href="https://milwaukeetool.com/"
+                target="_blank"
+                rel="noopener noreferrer">Milwaukee Tool</a
+            > and <a
+                href="https://183degrees.com/"
+                target="_blank"
+                rel="noopener noreferrer">183°</a
+            >, where I worked as a software development intern.
+        </p>
+        <p>
+            Most of my experience and interests are in in full-stack web
+            development, and my preferred stack is Java (Spring Boot), React,
+            and PostgreSQL. I have a passion for continous learning, and working
+            in software keeps me learning and experimenting with new
+            technologies and tools.
+        </p>
+        <p>
+            In my free time, I love traveling and experiencing life. I enjoy
+            nature, stay active with fitness and sports, and I like to read
+            books and watch movies.
+        </p>
+    </section>
+</BaseLayout>
+
+<style>
+    h1 {
+        font-size: var(--font-size-4);
+    }
+    img {
+        width: 12rem;
+        height: 12rem;
+        border-radius: 50%;
+        background-color: var(--primary-9-5);
+        border: 1px solid var(--primary-9);
+        margin-bottom: 2rem;
+    }
+</style>
