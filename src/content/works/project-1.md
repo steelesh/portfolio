@@ -34,3 +34,45 @@ augue.
 Nunc viverra elementum semper. Donec maximus nibh dolor. Ut commodo sit amet mauris sed tincidunt. Phasellus malesuada
 tellus nisi, et fringilla lorem maximus sit amet. Aenean pretium posuere maximus. Donec quis ante non augue molestie
 rhoncus eget ut urna. Nunc tempor sollicitudin volutpat. Etiam ac massa tincidunt mi sodales ullamcorper.
+
+```ts
+const foo = 'bar'
+
+console.log(foo)
+```
+
+```ts
+console.log('hewwo') // [!code --]
+console.log('hello') // [!code ++]
+console.log('goodbye')
+```
+
+```ts
+console.log('Not highlighted')
+console.log('Highlighted') // [!code highlight]
+console.log('Not highlighted')
+```
+
+```ts
+// [!code word:Hello]
+const message = 'Hello World'
+console.log(message) // prints Hello World
+```
+
+```ts
+console.log('Not focused');
+console.log('Focused') // [!code focus]
+console.log('Not focused');
+```
+
+```ts
+console.log('No errors or warnings')
+console.error('Error') // [!code error]
+console.warn('Warning') // [!code warning]
+```
+
+```js /Hello/
+const msg = 'Hello World'
+console.log(msg)
+console.log(msg) // prints Hello World
+```

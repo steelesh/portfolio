@@ -28,4 +28,23 @@ export async function getStaticPaths() {
         {new Date(entry.data.pubDate).toLocaleDateString()} &dot; {minutesRead}
     </p>
     <Content />
+    <div id="giscus_container">
+        <script
+            is:inline
+            src="https://giscus.app/client.js"
+            data-repo="steelesh/portfolio"
+            data-repo-id="R_kgDOMxGhnw"
+            data-category="Note / Work Comments"
+            data-category-id="DIC_kwDOMxGhn84CjRdB"
+            data-mapping="pathname"
+            data-strict="0"
+            data-reactions-enabled="1"
+            data-emit-metadata="0"
+            data-input-position="top"
+            data-theme="light"
+            data-lang="en"
+            data-loading="lazy"
+            crossorigin="anonymous"
+            async></script>
+    </div>
 </ProseLayout>
