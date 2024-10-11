@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: "Sample title"
 pubDate: 2022-07-01
 description: "Sample description"
