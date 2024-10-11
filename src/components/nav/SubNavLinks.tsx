@@ -4,7 +4,7 @@ import styles from '@styles/modules/sub-navigation-links.module.css'
 export const SubNavLinks = () => (
     <div className={styles.subNavLinks}>
         <p className={styles.availableForHire}>
-            <Icon name="pulse" color="#32CD32" />
+            <Icon name="pulse" color="var(--green-5)" />
             Available For Hire
         </p>
         <a className={styles.contactLink} href="/contact">
