@@ -2,7 +2,7 @@
 draft: false
 title: "Really liking Go"
 pubDate: 2024-5-30
-description: "Sample description"
+description: ""
 ---
 
 Recently, I've written some programs in [Go](https://go.dev), and I've really enjoyed it.
