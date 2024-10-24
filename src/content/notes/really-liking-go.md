@@ -1,7 +1,7 @@
 ---
 draft: false
 title: "Really liking Go"
-pubDate: 2024-5-30
+pubDate: 2024-05-30
 description: ""
 ---
 
