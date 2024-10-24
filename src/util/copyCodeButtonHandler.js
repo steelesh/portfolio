@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('astro:page-load', function () {
     document.querySelectorAll('.copy-button').forEach((button) => {
         const originalContent = button.innerHTML
 
