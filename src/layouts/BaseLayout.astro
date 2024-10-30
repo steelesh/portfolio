@@ -1,0 +1,90 @@
+---
+import '@styles/global.css'
+import { AstroFont } from 'astro-font'
+import { Nav } from '@components/nav/Nav'
+import Footer from '@components/Footer.astro'
+import { ViewTransitions } from 'astro:transitions'
+
+const { pageTitle, pageDescription } = Astro.props;
+---
+
+<html lang="en">
+    <head>
+        <AstroFont
+            config={[
+                {
+                    name: 'Plus Jakarta Sans Variable',
+                    src: [],
+                    googleFontsURL:
+                        'https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap',
+                    preload: true,
+                    display: 'swap',
+                    selector: 'body',
+                    fallback: 'sans-serif',
+                },
+                {
+                    name: 'Reenie Beanie',
+                    src: [],
+                    googleFontsURL:
+                        'https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap',
+                    preload: true,
+                    display: 'swap',
+                    selector: 'body',
+                    fallback: 'monospace',
+                },
+            ]}
+        />
+        <meta charset="UTF-8" />
+        <meta name="robots" content="noindex, follow" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{pageTitle}</title>
+        <ViewTransitions />
+        <link
+            rel="icon"
+            type="image/png"
+            href="/favicon-48x48.png"
+            sizes="48x48"
+        />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/apple-touch-icon.png"
+        />
+        <meta name="apple-mobile-web-app-title" content="steelesh" />
+        <link rel="manifest" href="/site.webmanifest" />
+        <link
+            rel="alternate"
+            type="application/rss+xml"
+            title="Steele's Notes"
+            href="/rss.xml"
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={pageDescription} />
+        <meta property="og:url" content={`https://steelesh.dev${Astro.url.pathname}`} />
+        <meta property="og:image" content={new URL(`${Astro.url.pathname !== '/' ? Astro.url.pathname : ''}/og.png`, Astro.site)} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:site_name" content="steelesh.dev" />
+        <meta property="og:locale" content="en_US" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={pageTitle} />
+        <meta name="twitter:description" content={pageDescription} />
+        <meta name="twitter:image" content={new URL(`${Astro.url.pathname !== '/' ? Astro.url.pathname : ''}/og.png`, Astro.site)} />
+        <meta name="twitter:site" content="@steele_codes" />
+        <meta name="twitter:creator" content="@steele_codes" />
+        <meta name="theme-color" content="#ffffff" />
+        <script src="./../util/copyCodeButtonHandler.js"></script>
+    </head>
+    <body>
+        <div id="content">
+            <Nav client:idle pathname={Astro.url.pathname} />
+            <main>
+                <slot />
+            </main>
+            <Footer />
+        </div>
+    </body>
+</html>

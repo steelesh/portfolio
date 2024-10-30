@@ -1,0 +1,64 @@
+.subNavLinks {
+	align-items: center;
+	display: flex;
+	font-weight: var(--font-weight-medium);
+	gap: 0.5rem;
+	margin-top: 1rem;
+	width: calc(100% - 0.7rem);
+}
+
+.availableForHire {
+	align-items: center;
+	color: var(--primary-9-5);
+	display: flex;
+	font-size: var(--font-size-0-5);
+	gap: 0.375rem;
+	justify-content: center;
+	margin-bottom: 0.25rem;
+	padding: 0.5rem 0;
+	width: 100%;
+}
+
+.availableForHire svg {
+	cursor: default !important;
+}
+
+.contactLink {
+	align-items: center;
+	background-color: var(--accent-fg);
+	border: 1px solid var(--primary-1);
+	border-radius: 0.5rem;
+	display: flex;
+	justify-content: center;
+	margin-bottom: 0.35rem;
+	padding: 0.5rem 0;
+	text-decoration: none;
+	transition: all 0.3s;
+	width: 100%;
+}
+
+.contactLink:hover {
+	background-color: var(--accent-fg-hover);
+}
+
+.contactLink:hover .contactText {
+	color: var(--primary-10);
+}
+
+.contactText {
+	color: var(--primary-9-5);
+	font-size: var(--font-size-0-5);
+}
+
+@media (max-width: 768px) {
+	.contactLink {
+		padding: 0.75rem;
+	}
+}
+
+@media (max-width: 425px) {
+	.contactLink {
+		padding-left: 0.25rem;
+		padding-right: 0.25rem;
+	}
+}

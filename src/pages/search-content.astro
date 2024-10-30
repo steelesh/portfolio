@@ -1,0 +1,78 @@
+---
+import Search from 'astro-pagefind/components/Search'
+import BaseLayout from '@layouts/BaseLayout.astro'
+
+const pageTitle = 'Steele - Search'
+const pageDescription = "Search for content on Steele's website.";
+---
+
+<BaseLayout pageTitle={pageTitle} pageDescription={pageDescription}>
+    <section class="slide-enter-content" transition:persist>
+        <div>
+            <h1>
+                Search for content
+                <span>Find what you're looking for.</span>
+            </h1>
+        </div>
+        <Search
+            id="search"
+            className="pagefind-ui"
+            uiOptions={{ showImages: false }}
+        />
+    </section>
+</BaseLayout>
+
+<style>
+    h1 {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        margin-bottom: 1rem;
+    }
+
+    h1 > span {
+        align-items: center;
+        gap: 1.5rem;
+        color: var(--accent-fg);
+        font-family: 'Reenie Beanie', cursive;
+        display: flex;
+    }
+
+    .pagefind-ui__search-input::placeholder {
+        color: var(--primary-4) !important;
+        font-weight: var(--font-weight-medium);
+    }
+
+    @media (max-width: 768px) {
+        h1 {
+            font-size: var(--font-size-5);
+        }
+    }
+
+    @media (max-width: 425px) {
+        h1 > span {
+            display: none;
+        }
+    }
+</style>
+
+<style is:global>
+    #search input,
+    #search button {
+        background-color: var(--primary-9-5);
+        border-color: var(--primary-8);
+        color: var(--primary-2);
+    }
+
+    #search ol li {
+        border-top-color: var(--primary-2);
+    }
+
+    #search ol li p a {
+        color: var(--primary-2);
+    }
+
+    #search ol li div p {
+        color: var(--primary-3);
+    }
+</style>

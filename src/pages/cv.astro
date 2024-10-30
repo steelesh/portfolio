@@ -1,0 +1,54 @@
+---
+import Content from '@components/fragments/cv.md'
+import '@styles/prose.css'
+import '@styles/cv.css'
+import BaseLayout from '@layouts/BaseLayout.astro'
+
+const pageTitle = 'Steele - CV'
+const pageDescription = "Steele Shreve's CV, 2024.";
+---
+
+<BaseLayout pageTitle={pageTitle} pageDescription={pageDescription}>
+    <section class="slide-enter-content">
+        <h1>CV — 2024</h1>
+        <a href="/steelesh-resume-2024.pdf" download>
+            <button>Download PDF</button>
+        </a>
+        <div class="cv-container proseContainer">
+            <Content />
+        </div>
+    </section>
+</BaseLayout>
+
+<style>
+    h1 {
+        margin-bottom: 1rem;
+    }
+
+    section {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    button {
+        background-color: var(--accent-fg);
+        border: 1px solid var(--primary-1);
+        color: var(--primary-9-5);
+        padding: 0.25rem 1.5rem;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        width: max-content;
+        transition: background-color 0.3s ease-in-out;
+    }
+
+    button:hover {
+        background-color: var(--accent-fg-hover);
+    }
+
+    @media (max-width: 768px) {
+        h1 {
+            font-size: var(--font-size-5);
+        }
+    }
+</style>
