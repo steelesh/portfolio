@@ -1,5 +1,16 @@
+---
+import childProcess from "child_process";
+
+const version = childProcess.execSync('git ls-remote --tags --sort="v:refname" https://github.com/steelesh/portfolio.git | tail -n1 | sed "s/.*\\\///"')
+    .toString()
+    .trim();
+const hash = childProcess.execSync("git rev-parse --short HEAD").toString().trim();
+---
+
 <footer>
     <p>&copy; 2024 Steele Shreve</p>
+    <p id="git-metadata"><a href="https://github.com/steelesh/portfolio" target="_blank" rel="noopener noreferrer">View source</a>&nbsp;({version}, {hash})</p>
+    <p id="built-with">Built with <a href="https://astro.build/" target="_blank" rel="noopener noreferrer">Astro</a>, deployed on <a href="https://pages.cloudflare.com/" target="_blank" rel="noopener noreferrer">Cloudflare</a></p>
 </footer>
 
 <style>
