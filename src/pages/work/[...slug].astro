@@ -1,0 +1,114 @@
+---
+import { getCollection } from 'astro:content'
+import ProseLayout from '@layouts/ProseLayout.astro'
+const { entry, minutesRead } = Astro.props
+const { Content } = await entry.render()
+const title = entry.data.title
+const description = entry.data.description
+export async function getStaticPaths() {
+    const workEntries = await getCollection('works', ({ data }) => {
+        return import.meta.env.PROD ? data.draft !== true : true
+    })
+    return await Promise.all(
+        workEntries.map(async (entry) => {
+            const { remarkPluginFrontmatter } = await entry.render()
+            return {
+                params: { slug: entry.slug },
+                props: {
+                    entry,
+                    minutesRead: remarkPluginFrontmatter.minutesRead,
+                },
+            }
+        })
+    )
+}
+---
+
+<ProseLayout transition:animate="slide" title={title} description={description}>
+    <div>
+        <h1>{entry.data.title}</h1>
+        <p id="meta">
+            {new Date(entry.data.pubDate).toLocaleDateString()}
+            <span class="dot">&bull;</span>
+            {minutesRead}
+        </p>
+    </div>
+    <Content />
+    <hr />
+    <section id="comment-section">
+        <h2>Any<br /> Thoughts?</h2>
+        <div id="giscus_container">
+            <script
+                is:inline
+                src="https://giscus.app/client.js"
+                data-repo="steelesh/portfolio"
+                data-repo-id="R_kgDOMxGhnw"
+                data-category="Note / Work Comments"
+                data-category-id="DIC_kwDOMxGhn84CjRdB"
+                data-mapping="pathname"
+                data-strict="0"
+                data-reactions-enabled="0"
+                data-emit-metadata="0"
+                data-input-position="top"
+                data-theme="light"
+                data-lang="en"
+                data-loading="lazy"
+                crossorigin="anonymous"
+                async></script>
+        </div>
+    </section>
+</ProseLayout>
+
+<style>
+    #meta {
+        display: flex;
+        align-items: center;
+        font-size: var(--font-size-1);
+        color: var(--primary-6);
+    }
+
+    .dot {
+        font-size: var(--font-size-0-75);
+        opacity: 0.75;
+        margin-left: 0.25rem;
+        margin-right: 0.25rem;
+    }
+
+    hr {
+        margin-bottom: 1.5rem;
+        border-top: dotted 1px;
+        color: var(--primary-1);
+    }
+
+    #comment-section {
+        display: flex;
+        align-items: start;
+        gap: 5rem;
+    }
+
+    #comment-section h2 {
+        margin: 0;
+        font-size: var(--font-size-6);
+        color: var(--primary-3);
+        font-family: 'Reenie Beanie', cursive;
+    }
+
+    #giscus_container {
+        flex-grow: 1;
+    }
+
+    @media (max-width: 768px) {
+        #comment-section {
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        #comment-section h2 {
+            display: none;
+        }
+
+        #giscus_container {
+            width: 100%;
+        }
+    }
+</style>

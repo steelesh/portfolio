@@ -1,0 +1,172 @@
+---
+import { getCollection } from 'astro:content'
+import BaseLayout from '@layouts/BaseLayout.astro'
+
+const workEntries = await getCollection('works')
+
+const renderedEntries = await Promise.all(
+    workEntries
+        .filter((entry) =>
+            import.meta.env.PROD ? entry.data.draft !== true : true
+        )
+        .map(async (entry) => {
+            const { remarkPluginFrontmatter } = await entry.render()
+            return {
+                ...entry,
+                minutesRead: remarkPluginFrontmatter.minutesRead,
+            }
+        })
+)
+
+renderedEntries.sort(
+    (a, b) =>
+        new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+)
+const pageTitle = 'Steele - Work'
+const pageDescription = "A collection of Steele's side projects and freelance work."
+
+const formatDate = (dateString: Date) => {
+    const date = new Date(dateString)
+    return date.toLocaleDateString('en-US', {
+        month: 'short',
+        day: 'numeric',
+        year: 'numeric',
+    })
+}
+---
+
+<BaseLayout pageTitle={pageTitle} pageDescription={pageDescription}>
+    <section class="slide-enter-content">
+        <h1>Work</h1>
+        <p>A shared collection of side projects and freelance work.</p>
+        <p style="font-size: var(--font-size-0-75); font-family: monospace">
+            -- This section is currently under construction --
+        </p>
+        <ul id="work-list">
+            {
+                renderedEntries.map((entry) => (
+                    <li>
+                        <a href={`/work/${entry.slug}`}>
+                            <span class="title">
+                                {entry.data.title}
+                                {entry.minutesRead && (
+                                    <span class="meta">
+                                        &bull; {entry.minutesRead}
+                                    </span>
+                                )}
+                            </span>
+                            <span class="meta">
+                                {formatDate(entry.data.pubDate)}
+                            </span>
+                        </a>
+                    </li>
+                ))
+            }
+        </ul>
+    </section>
+</BaseLayout>
+
+<script>
+    document.addEventListener('astro:page-load', () => {
+        const list = document.getElementById('work-list')
+        const links = list?.querySelectorAll('a')
+
+        const isTouchDevice =
+            'ontouchstart' in window || navigator.maxTouchPoints > 0
+
+        if (!isTouchDevice) {
+            links?.forEach((link) => {
+                link.addEventListener('mouseenter', () => {
+                    list?.classList.add('hovered')
+                    link.classList.add('active')
+                })
+
+                link.addEventListener('mouseleave', () => {
+                    list?.classList.remove('hovered')
+                    link.classList.remove('active')
+                })
+            })
+        }
+
+        window.addEventListener('pageshow', (event) => {
+            if (event.persisted) {
+                links?.forEach((link) => {
+                    link.classList.remove('active')
+                })
+                list?.classList.remove('hovered')
+            }
+        })
+    })
+</script>
+
+<style>
+    h1 {
+        margin-bottom: 1rem;
+    }
+
+    p {
+        margin-bottom: 1.5rem;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    a {
+        display: flex;
+        border-radius: 0.5rem;
+        margin-bottom: 0.75rem;
+        align-items: center;
+        text-decoration: none;
+        justify-content: space-between;
+        transition: color 0.3s ease;
+        color: var(--primary-2);
+    }
+
+    @media (hover: none) and (pointer: coarse) {
+        a {
+            background-color: var(--primary-9-5);
+            border: 1px solid var(--primary-9);
+            padding: 0.5rem 1rem;
+        }
+    }
+
+    @media (max-width: 768px) {
+        h1 {
+            font-size: var(--font-size-5);
+        }
+    }
+
+    @media (max-width: 425px) {
+        .meta:first-child {
+            display: none;
+        }
+    }
+
+    .title {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .meta {
+        color: var(--primary-5);
+        font-size: var(--font-size-0-75);
+        transition: color 0.3s ease;
+    }
+
+    ul.hovered a.active .meta {
+        color: var(--primary-2);
+    }
+
+    ul.hovered a {
+        color: var(--primary-5);
+    }
+
+    ul.hovered a.active {
+        border-color: var(--primary-2);
+        color: var(--primary-2);
+    }
+</style>

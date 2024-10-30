@@ -1,0 +1,49 @@
+.searchContainer {
+	background-color: var(--primary-1);
+	border: 1px solid var(--primary-4);
+	border-radius: 0.5rem;
+	cursor: pointer;
+	padding: 0.25rem 0.5rem;
+	transition: all 0.3s;
+}
+
+.searchContainer:hover {
+	border-color: var(--primary-5);
+}
+
+.searchContainer:hover .searchText {
+	color: var(--primary-9-5);
+}
+
+.searchContainer:hover .searchIconContainer svg path {
+	fill: var(--primary-10);
+}
+
+.searchIconContainer {
+	align-items: center;
+	display: flex;
+	gap: 0.25rem;
+}
+
+.searchIconContainer svg path {
+	transition: fill 0.3s ease-in-out;
+}
+
+.searchText {
+	color: var(--primary-8);
+	font-size: var(--font-size-0-75);
+	padding-right: 6rem;
+	transition: color 0.3s ease-in-out;
+}
+
+@media (max-width: 600px) {
+	.searchText {
+		padding-right: 2rem !important;
+	}
+}
+
+@media (max-width: 425px) {
+	.searchContainer {
+		display: none;
+	}
+}

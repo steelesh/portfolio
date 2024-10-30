@@ -1,0 +1,61 @@
+---
+import portrait from '@assets/animated-portrait.png';
+import '@styles/prose.css';
+import { Image } from 'astro:assets';
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const pageTitle = 'Steele - About';
+const pageDescription = "Learn more about Steele, a senior IT student at the University of Cincinnati with a passion for full-stack web development.";
+---
+
+<BaseLayout pageTitle={pageTitle} pageDescription={pageDescription}>
+    <section class="slide-enter-content proseContainer">
+        <Image
+            src={portrait}
+            width="576"
+            height="576"
+            loading="eager"
+            alt="Animated portrait of Steele"
+        />
+        <h1>Steele Shreve</h1>
+        <p>
+            I'm a senior IT student at the <a
+            href="https://uc.edu/"
+            target="_blank"
+            rel="noopener noreferrer">University of Cincinnati</a
+        >, expecting to graduate in May 2025. My coursework is heavily
+            focused on programming and software engineering, and I've had the
+            chance to apply what I've learned during internships at <a
+            href="https://milwaukeetool.com/"
+            target="_blank"
+            rel="noopener noreferrer">Milwaukee Tool</a
+        > and <a
+            href="https://183degrees.com/"
+            target="_blank"
+            rel="noopener noreferrer">183°</a
+        >.
+        </p>
+        <p>
+            I'm primarily interested in full-stack web development, and my tech
+            stack of choice is Go, HTMX, and PostgreSQL. I have a passion for
+            continuous learning, and working in software allows me to experiment
+            with new technologies and tools.
+        </p>
+        <p>
+            In my free time, I love traveling and experiencing life. I enjoy
+            nature, staying active with fitness and sports, and reading books
+            and watching movies.
+        </p>
+    </section>
+</BaseLayout>
+
+<style>
+    h1 {
+        font-size: var(--font-size-4);
+    }
+    img {
+        width: 12rem;
+        height: 12rem;
+        margin-bottom: 2rem;
+    }
+</style>

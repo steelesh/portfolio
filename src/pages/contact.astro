@@ -1,0 +1,73 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro'
+import '@styles/prose.css'
+
+const pageTitle = 'Steele - Contact'
+const pageDescription = "Get in touch with Steele Shreve, a senior IT student at the University of Cincinnati.";
+---
+
+<BaseLayout pageTitle={pageTitle} pageDescription={pageDescription}>
+    <section class="slide-enter-content">
+        <div>
+            <h1>
+                Let's connect!
+                <span>Send me a message.</span>
+            </h1>
+        </div>
+        <div class="proseContainer">
+            <p>
+                The best way to reach me is by email at <a
+                    href="mailto:steeleshreve11@gmail.com"
+                    >steeleshreve11@gmail.com</a
+                >.
+            </p>
+            <p>
+                Also, feel free to connect with me on <a
+                    href="https://www.linkedin.com/in/steelesh/"
+                    target="_blank"
+                    rel="noopener noreferrer">LinkedIn</a
+                > or
+                <a
+                    href="https://github.com/steelesh"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    GitHub
+                </a>
+                🚀
+            </p>
+        </div>
+    </section>
+</BaseLayout>
+
+<style>
+    section > div:last-child {
+        display: flex;
+        flex-direction: column;
+    }
+
+    h1 {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        margin-bottom: 1rem;
+    }
+
+    h1 > span {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        color: var(--accent-fg);
+        font-family: 'Reenie Beanie', cursive;
+    }
+
+    p {
+        margin-bottom: 1.5rem;
+    }
+
+    @media (max-width: 768px) {
+        h1 {
+            font-size: var(--font-size-5);
+        }
+    }
+</style>
