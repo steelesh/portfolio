@@ -46,7 +46,7 @@ const formatDate = (dateString: Date) => {
             {
                 renderedEntries.map((entry) => (
                     <li>
-                        <a href={`/notes/${entry.slug}`}>
+                        <a href={`/work/${entry.slug}`}>
                             <span class="title">{entry.data.title}</span>
                             <span class="meta">
                                 {formatDate(entry.data.pubDate)}
