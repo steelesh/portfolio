@@ -22,6 +22,7 @@ renderedEntries.sort(
 	(a, b) =>
 		new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime(),
 );
+
 const pageTitle = "Steele - Work";
 const pageDescription =
 	"A collection of Steele's side projects and freelance work.";
@@ -40,22 +41,13 @@ const formatDate = (dateString: Date) => {
     <section class="slide-enter-content">
         <h1>Work</h1>
         <p>A shared collection of side projects and freelance work.</p>
-        <p style="font-size: var(--font-size-0-75); font-family: monospace">
-            -- This section is currently under construction --
-        </p>
+        <p style="font-size: var(--font-size-0-75); font-family: monospace">-- Under construction --</p>
         <ul id="work-list">
             {
                 renderedEntries.map((entry) => (
                     <li>
-                        <a href={`/work/${entry.slug}`}>
-                            <span class="title">
-                                {entry.data.title}
-                                {entry.minutesRead && (
-                                    <span class="meta">
-                                        &bull; {entry.minutesRead}
-                                    </span>
-                                )}
-                            </span>
+                        <a href={`/notes/${entry.slug}`}>
+                            <span class="title">{entry.data.title}</span>
                             <span class="meta">
                                 {formatDate(entry.data.pubDate)}
                             </span>
@@ -66,39 +58,6 @@ const formatDate = (dateString: Date) => {
         </ul>
     </section>
 </BaseLayout>
-
-<script>
-    document.addEventListener('astro:page-load', () => {
-        const list = document.getElementById('work-list')
-        const links = list?.querySelectorAll('a')
-
-        const isTouchDevice =
-            'ontouchstart' in window || navigator.maxTouchPoints > 0
-
-        if (!isTouchDevice) {
-            links?.forEach((link) => {
-                link.addEventListener('mouseenter', () => {
-                    list?.classList.add('hovered')
-                    link.classList.add('active')
-                })
-
-                link.addEventListener('mouseleave', () => {
-                    list?.classList.remove('hovered')
-                    link.classList.remove('active')
-                })
-            })
-        }
-
-        window.addEventListener('pageshow', (event) => {
-            if (event.persisted) {
-                links?.forEach((link) => {
-                    link.classList.remove('active')
-                })
-                list?.classList.remove('hovered')
-            }
-        })
-    })
-</script>
 
 <style>
     h1 {
@@ -117,21 +76,45 @@ const formatDate = (dateString: Date) => {
 
     a {
         display: flex;
+        background-color: var(--primary-9-5);
+        border: 1px solid var(--primary-9);
+        padding: 0.5rem 1rem;
         border-radius: 0.5rem;
         margin-bottom: 0.75rem;
         align-items: center;
         text-decoration: none;
         justify-content: space-between;
-        transition: color 0.3s ease;
+        transition: all 0.3s ease;
         color: var(--primary-2);
     }
 
-    @media (hover: none) and (pointer: coarse) {
-        a {
-            background-color: var(--primary-9-5);
-            border: 1px solid var(--primary-9);
-            padding: 0.5rem 1rem;
-        }
+    .title {
+        display: flex;
+        max-width: 60%;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .meta {
+        color: var(--primary-5);
+        font-size: var(--font-size-0-75);
+        transition: color 0.3s ease;
+    }
+
+    ul a:hover {
+        color: black;
+    }
+
+    ul:hover a {
+        color: gray;
+    }
+
+    ul a:hover {
+        color: black;
+    }
+
+    ul a:hover .meta {
+        color: black;
     }
 
     @media (max-width: 768px) {
@@ -144,30 +127,10 @@ const formatDate = (dateString: Date) => {
         .meta:first-child {
             display: none;
         }
+
+        .title {
+            font-size: var(--font-size-0-75);
+        }
     }
 
-    .title {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-    }
-
-    .meta {
-        color: var(--primary-5);
-        font-size: var(--font-size-0-75);
-        transition: color 0.3s ease;
-    }
-
-    ul.hovered a.active .meta {
-        color: var(--primary-2);
-    }
-
-    ul.hovered a {
-        color: var(--primary-5);
-    }
-
-    ul.hovered a.active {
-        border-color: var(--primary-2);
-        color: var(--primary-2);
-    }
 </style>

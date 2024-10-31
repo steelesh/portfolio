@@ -27,16 +27,7 @@ const pageTitle = "Steele - Notes";
 const pageDescription =
 	"A collection of Steele's random thoughts and life experiences.";
 
-const formatDateDesktop = (dateString: Date) => {
-	const date = new Date(dateString);
-	return date.toLocaleDateString("en-US", {
-		month: "short",
-		day: "numeric",
-		year: "numeric",
-	});
-};
-
-const formatDateMobile = (dateString: Date) => {
+const formatDate = (dateString: Date) => {
 	const date = new Date(dateString);
 	return date.toLocaleDateString("en-US", {
 		month: "numeric",
@@ -49,20 +40,15 @@ const formatDateMobile = (dateString: Date) => {
 <BaseLayout pageTitle={pageTitle} pageDescription={pageDescription}>
     <section class="slide-enter-content">
         <h1>Notes</h1>
-        <p>
-            A shared collection of some of my random thoughts and experiences.
-        </p>
+        <p>A shared collection of some of my random thoughts and experiences.</p>
         <ul id="notes-list">
             {
                 renderedEntries.map((entry) => (
                     <li>
                         <a href={`/notes/${entry.slug}`}>
                             <span class="title">{entry.data.title}</span>
-                            <span class="meta meta-desktop">
-                                {formatDateDesktop(entry.data.pubDate)}
-                            </span>
-                            <span class="meta meta-mobile">
-                                {formatDateMobile(entry.data.pubDate)}
+                            <span class="meta">
+                                {formatDate(entry.data.pubDate)}
                             </span>
                         </a>
                     </li>
@@ -71,39 +57,6 @@ const formatDateMobile = (dateString: Date) => {
         </ul>
     </section>
 </BaseLayout>
-
-<script>
-    document.addEventListener('astro:page-load', () => {
-        const list = document.getElementById('notes-list')
-        const links = list?.querySelectorAll('a')
-
-        const isTouchDevice =
-            'ontouchstart' in window || navigator.maxTouchPoints > 0
-
-        if (!isTouchDevice) {
-            links?.forEach((link) => {
-                link.addEventListener('mouseenter', () => {
-                    list?.classList.add('hovered')
-                    link.classList.add('active')
-                })
-
-                link.addEventListener('mouseleave', () => {
-                    list?.classList.remove('hovered')
-                    link.classList.remove('active')
-                })
-            })
-        }
-
-        window.addEventListener('pageshow', (event) => {
-            if (event.persisted) {
-                links?.forEach((link) => {
-                    link.classList.remove('active')
-                })
-                list?.classList.remove('hovered')
-            }
-        })
-    })
-</script>
 
 <style>
     h1 {
@@ -147,18 +100,20 @@ const formatDateMobile = (dateString: Date) => {
         transition: color 0.3s ease;
     }
 
-    .meta-mobile {
-        display: none;
+    ul a:hover {
+        color: black;
     }
 
-    @media (max-width: 768px) {
-        .meta-desktop {
-            display: none;
-        }
+    ul:hover a {
+        color: gray;
+    }
 
-        .meta-mobile {
-            display: inline;
-        }
+    ul a:hover {
+        color: black;
+    }
+
+    ul a:hover .meta {
+        color: black;
     }
 
     @media (max-width: 768px) {
@@ -177,16 +132,4 @@ const formatDateMobile = (dateString: Date) => {
         }
     }
 
-    ul.hovered a.active .meta {
-        color: var(--primary-2);
-    }
-
-    ul.hovered a {
-        color: var(--primary-7);
-    }
-
-    ul.hovered a.active {
-        border-color: var(--primary-2);
-        color: var(--primary-2);
-    }
 </style>
