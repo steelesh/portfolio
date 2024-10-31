@@ -5,7 +5,8 @@
 	padding: 1rem 2rem;
 }
 
-.cv-container p, li {
+.cv-container p,
+li {
 	font-size: var(--font-size-0-75);
 }
 

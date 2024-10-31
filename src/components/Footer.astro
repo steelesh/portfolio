@@ -1,10 +1,16 @@
 ---
-import childProcess from "child_process";
+import childProcess from "node:child_process";
 
-const version = childProcess.execSync('git ls-remote --tags --sort="v:refname" https://github.com/steelesh/portfolio.git | tail -n1 | sed "s/.*\\\///"')
-    .toString()
-    .trim();
-const hash = childProcess.execSync("git rev-parse --short HEAD").toString().trim();
+const version = childProcess
+	.execSync(
+		'git ls-remote --tags --sort="v:refname" https://github.com/steelesh/portfolio.git | tail -n1 | sed "s/.*\\///"',
+	)
+	.toString()
+	.trim();
+const hash = childProcess
+	.execSync("git rev-parse --short HEAD")
+	.toString()
+	.trim();
 ---
 
 <footer>

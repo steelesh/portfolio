@@ -1,48 +1,49 @@
 ---
-import { getCollection } from 'astro:content'
-import BaseLayout from '@layouts/BaseLayout.astro'
+import { getCollection } from "astro:content";
+import BaseLayout from "@layouts/BaseLayout.astro";
 
-const noteEntries = await getCollection('notes')
+const noteEntries = await getCollection("notes");
 
 const renderedEntries = await Promise.all(
-    noteEntries
-        .filter((entry) =>
-            import.meta.env.PROD ? entry.data.draft !== true : true
-        )
-        .map(async (entry) => {
-            const { remarkPluginFrontmatter } = await entry.render()
-            return {
-                ...entry,
-                minutesRead: remarkPluginFrontmatter.minutesRead,
-            }
-        })
-)
+	noteEntries
+		.filter((entry) =>
+			import.meta.env.PROD ? entry.data.draft !== true : true,
+		)
+		.map(async (entry) => {
+			const { remarkPluginFrontmatter } = await entry.render();
+			return {
+				...entry,
+				minutesRead: remarkPluginFrontmatter.minutesRead,
+			};
+		}),
+);
 
 renderedEntries.sort(
-    (a, b) =>
-        new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
-)
+	(a, b) =>
+		new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime(),
+);
 
-const pageTitle = 'Steele - Notes'
-const pageDescription = "A collection of Steele's random thoughts and life experiences.";
+const pageTitle = "Steele - Notes";
+const pageDescription =
+	"A collection of Steele's random thoughts and life experiences.";
 
 const formatDateDesktop = (dateString: Date) => {
-    const date = new Date(dateString)
-    return date.toLocaleDateString('en-US', {
-        month: 'short',
-        day: 'numeric',
-        year: 'numeric',
-    })
-}
+	const date = new Date(dateString);
+	return date.toLocaleDateString("en-US", {
+		month: "short",
+		day: "numeric",
+		year: "numeric",
+	});
+};
 
 const formatDateMobile = (dateString: Date) => {
-    const date = new Date(dateString)
-    return date.toLocaleDateString('en-US', {
-        month: 'numeric',
-        day: 'numeric',
-        year: 'numeric',
-    })
-}
+	const date = new Date(dateString);
+	return date.toLocaleDateString("en-US", {
+		month: "numeric",
+		day: "numeric",
+		year: "numeric",
+	});
+};
 ---
 
 <BaseLayout pageTitle={pageTitle} pageDescription={pageDescription}>
