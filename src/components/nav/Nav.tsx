@@ -72,6 +72,7 @@ export const Nav = ({ pathname }: { pathname: string }) => {
 			<div className={styles.scrollBlurOverlay} />
 			<nav
 				ref={navRef}
+				id="nav"
 				className={`${styles.nav} ${
 					isVisible ? styles.navVisible : styles.navHidden
 				}`}

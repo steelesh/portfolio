@@ -48,9 +48,10 @@ export const MenuToggle = ({
 			style={{ cursor: "pointer", transition: "transform 0.3s" }}
 			onMouseEnter={() => setIsHovered(true)}
 			onMouseLeave={() => setIsHovered(false)}
-			aria-pressed={isToggled}
-			aria-label="Toggle menu"
-			role="menubar"
+			aria-expanded={isToggled ? "true" : "false"}
+			aria-controls="nav"
+			aria-haspopup="true"
+			aria-hidden={isToggled ? "false" : "true"}
 		>
 			<title>{isToggled ? "Close menu" : "Open menu"}</title>
 			<g
