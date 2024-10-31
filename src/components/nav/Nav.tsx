@@ -96,11 +96,7 @@ export const Nav = ({ pathname }: { pathname: string }) => {
 								role="button"
 							/>
 						</a>
-						<MenuToggle
-							isToggled={isToggled}
-							handleToggle={handleToggle}
-							aria-label={isToggled ? "Close Menu" : "Open Menu"}
-						/>
+						<MenuToggle isToggled={isToggled} handleToggle={handleToggle} />
 					</div>
 				</div>
 				<motion.div

@@ -22,8 +22,7 @@ export const BodyBlurOverlay = ({
 					setIsToggled(false);
 				}
 			}}
-			role="button"
-			tabIndex={0}
+			role="presentation"
 		/>
 	);
 };

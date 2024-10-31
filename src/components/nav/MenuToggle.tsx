@@ -50,6 +50,7 @@ export const MenuToggle = ({
 			onMouseLeave={() => setIsHovered(false)}
 			aria-pressed={isToggled}
 			aria-label="Toggle menu"
+			role="menubar"
 		>
 			<title>{isToggled ? "Close menu" : "Open menu"}</title>
 			<g
