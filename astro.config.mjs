@@ -1,10 +1,8 @@
 import * as fs from "node:fs";
 import * as path from "node:path";
 import { fileURLToPath } from "node:url";
-import mdx from "@astrojs/mdx";
 import react from "@astrojs/react";
 import sectionize from "@hbsnow/rehype-sectionize";
-import playformInline from "@playform/inline";
 import { Resvg } from "@resvg/resvg-js";
 import {
 	transformerMetaHighlight,
@@ -221,7 +219,7 @@ const og = () => ({
 export default defineConfig({
 	site: "https://steelesh.dev",
 	trailingSlash: "never",
-	integrations: [react(), pagefind(), mdx(), playformInline(), og()],
+	integrations: [react(), pagefind(), og()],
 
 	markdown: {
 		syntaxHighlight: "shiki",
