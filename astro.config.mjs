@@ -3,6 +3,7 @@ import * as path from "node:path";
 import { fileURLToPath } from "node:url";
 import react from "@astrojs/react";
 import sectionize from "@hbsnow/rehype-sectionize";
+import playformInline from "@playform/inline";
 import { Resvg } from "@resvg/resvg-js";
 import {
 	transformerMetaHighlight,
@@ -219,7 +220,7 @@ const og = () => ({
 export default defineConfig({
 	site: "https://steelesh.dev",
 	trailingSlash: "never",
-	integrations: [react(), pagefind(), og()],
+	integrations: [react(), pagefind(), playformInline(), og()],
 
 	markdown: {
 		syntaxHighlight: "shiki",
