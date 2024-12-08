@@ -104,7 +104,7 @@ const og = () => ({
 				const dirPath = fileURLToPath(dir);
 
 				for (const { pathname } of pages) {
-					if (!pathname.startsWith("notes/") && !pathname.startsWith("work/")) {
+					if (!pathname.startsWith("posts/") && !pathname.startsWith("work/")) {
 						const slug = pathname.endsWith("/")
 							? pathname.slice(0, -1)
 							: pathname.slice();
@@ -148,8 +148,8 @@ const og = () => ({
 						continue;
 					}
 					const normalizedPathname = pathname.replace(/^\/+/, "");
-					const contentDir = normalizedPathname.startsWith("notes/")
-						? "notes"
+					const contentDir = normalizedPathname.startsWith("posts/")
+						? "posts"
 						: "work";
 					const sliceIndex = contentDir.length + 1;
 					let articleName = normalizedPathname.slice(sliceIndex);

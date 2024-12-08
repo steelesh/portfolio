@@ -31,12 +31,12 @@ export const NavLinks = ({ currentPath }: { currentPath: string }) => {
 				additionalClass={currentPath.startsWith("/work") ? styles.active : ""}
 			/>
 			<NavLink
-				href="/notes"
-				iconName="notes"
+				href="/posts"
+				iconName="posts"
 				iconSize="md"
 				iconColor="var(--primary-8)"
-				label="Notes"
-				additionalClass={currentPath.startsWith("/notes") ? styles.active : ""}
+				label="Posts"
+				additionalClass={currentPath.startsWith("/posts") ? styles.active : ""}
 			/>
 			<NavLink
 				href="/cv"

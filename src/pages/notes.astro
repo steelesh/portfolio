@@ -2,50 +2,49 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "@layouts/BaseLayout.astro";
 
-const noteEntries = await getCollection("notes");
+const postEntries = await getCollection("posts");
 
 const renderedEntries = await Promise.all(
-	noteEntries
-		.filter((entry) =>
-			import.meta.env.PROD ? entry.data.draft !== true : true,
-		)
-		.map(async (entry) => {
-			const { remarkPluginFrontmatter } = await entry.render();
-			return {
-				...entry,
-				minutesRead: remarkPluginFrontmatter.minutesRead,
-			};
-		}),
+    postEntries
+        .filter((entry) =>
+            import.meta.env.PROD ? entry.data.draft !== true : true,
+        )
+        .map(async (entry) => {
+            const { remarkPluginFrontmatter } = await entry.render();
+            return {
+                ...entry,
+                minutesRead: remarkPluginFrontmatter.minutesRead,
+            };
+        }),
 );
 
 renderedEntries.sort(
-	(a, b) =>
-		new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime(),
+    (a, b) =>
+        new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime(),
 );
 
-const pageTitle = "Steele - Notes";
-const pageDescription =
-	"A collection of Steele's random thoughts and life experiences.";
+const pageTitle = "Steele - Posts";
+const pageDescription = "A collection of Steele's posts.";
 
 const formatDate = (dateString: Date) => {
-	const date = new Date(dateString);
-	return date.toLocaleDateString("en-US", {
-		month: "numeric",
-		day: "numeric",
-		year: "numeric",
-	});
+    const date = new Date(dateString);
+    return date.toLocaleDateString("en-US", {
+        month: "numeric",
+        day: "numeric",
+        year: "numeric",
+    });
 };
 ---
 
 <BaseLayout pageTitle={pageTitle} pageDescription={pageDescription}>
     <section class="slide-enter-content">
-        <h1>Notes</h1>
-        <p>A shared collection of some of my random thoughts and experiences.</p>
-        <ul id="notes-list">
+        <h1>Posts</h1>
+        <p>Sometimes I write about things</p>
+        <ul id="posts-list">
             {
                 renderedEntries.map((entry) => (
                     <li>
-                        <a href={`/notes/${entry.slug}`}>
+                        <a href={`/posts/${entry.slug}`}>
                             <span class="title">{entry.data.title}</span>
                             <span class="meta">
                                 {formatDate(entry.data.pubDate)}
@@ -132,5 +131,4 @@ const formatDate = (dateString: Date) => {
             font-size: var(--font-size-0-75);
         }
     }
-
 </style>

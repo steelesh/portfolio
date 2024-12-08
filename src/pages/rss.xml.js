@@ -2,19 +2,19 @@ import { getCollection } from "astro:content";
 import rss from "@astrojs/rss";
 
 export async function GET(context) {
-	const notes = await getCollection("notes", ({ data }) => {
+	const posts = await getCollection("posts", ({ data }) => {
 		return import.meta.env.PROD ? data.draft !== true : true;
 	});
 	return rss({
-		title: "Steele's Notes",
+		title: "Steele's Posts",
 		description:
 			"A collection of Steele's random thoughts and life experiences",
 		site: context.site,
-		items: notes.map((note) => ({
-			title: note.data.title,
-			pubDate: note.data.pubDate,
-			description: note.data.description,
-			link: `/notes/${note.slug}`,
+		items: posts.map((post) => ({
+			title: post.data.title,
+			pubDate: post.data.pubDate,
+			description: post.data.description,
+			link: `/posts/${post.slug}`,
 		})),
 		trailingSlash: false,
 		stylesheet: "/rss/styles.xsl",
