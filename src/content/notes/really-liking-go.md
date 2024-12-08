@@ -1,8 +1,8 @@
 ---
 draft: false
-title: "Really liking Go"
+title: Really liking Go
 pubDate: 2024-05-30
-description: "Reasons why Steele's pursuing his interest in the Go programming language"
+description: Reasons why Steele's pursuing his interest in the Go programming language
 ---
 
 Recently, I've written some programs in [Go](https://go.dev), and I've really enjoyed it.
