@@ -1,72 +1,69 @@
-document.addEventListener("astro:page-load", () => {
-	const copyButtons = document.querySelectorAll(".copy-button");
-	for (const button of copyButtons) {
-		const originalContent = button.innerHTML;
+document.addEventListener('astro:page-load', () => {
+    const animateCopyButton = (button, originalContent) => {
+        const copiedIcon = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+        Object.entries({
+            xmlns: 'http://www.w3.org/2000/svg',
+            width: '1.25em',
+            height: '1.25em',
+            viewBox: '0 0 24 24',
+            fill: 'currentColor',
+        }).forEach(([key, value]) => copiedIcon.setAttribute(key, value))
 
-		button.addEventListener("click", function () {
-			const preNode = this.closest("pre");
-			if (preNode) {
-				const codeContent = preNode.querySelector("code");
-				if (codeContent) {
-					navigator.clipboard
-						.writeText(codeContent.textContent)
-						.then(() => {
-							if (!this.classList.contains("copied")) {
-								const copiedIcon = document.createElementNS(
-									"http://www.w3.org/2000/svg",
-									"svg",
-								);
-								copiedIcon.setAttribute("xmlns", "http://www.w3.org/2000/svg");
-								copiedIcon.setAttribute("width", "1.25em");
-								copiedIcon.setAttribute("height", "1.25em");
-								copiedIcon.setAttribute("viewBox", "0 0 24 24");
-								copiedIcon.setAttribute("fill", "currentColor");
+        const path = document.createElementNS('http://www.w3.org/2000/svg', 'path')
+        path.setAttribute('d', 'M9.86 18a1 1 0 0 1-.73-.32l-4.86-5.17a1 1 0 1 1 1.46-1.37l4.12 4.39l8.41-9.2a1 1 0 1 1 1.48 1.34l-9.14 10a1 1 0 0 1-.73.33Z')
+        copiedIcon.appendChild(path)
 
-								const path = document.createElementNS(
-									"http://www.w3.org/2000/svg",
-									"path",
-								);
-								path.setAttribute(
-									"d",
-									"M9.86 18a1 1 0 0 1-.73-.32l-4.86-5.17a1 1 0 1 1 1.46-1.37l4.12 4.39l8.41-9.2a1 1 0 1 1 1.48 1.34l-9.14 10a1 1 0 0 1-.73.33Z",
-								);
-								copiedIcon.appendChild(path);
+        const copiedText = document.createElement('span')
+        copiedText.textContent = 'Copied!'
+        button.classList.add('fade-out')
 
-								// Create a new span element for "Copied!"
-								const copiedText = document.createElement("span");
-								copiedText.textContent = "Copied!";
+        setTimeout(() => {
+            button.innerHTML = ''
+            button.append(copiedIcon, copiedText)
+            button.classList.replace('fade-out', 'fade-in')
+            button.classList.add('copied')
 
-								this.classList.add("fade-out");
+            setTimeout(() => {
+                button.classList.replace('fade-in', 'fade-out')
+                setTimeout(() => {
+                    button.innerHTML = originalContent
+                    button.classList.replace('fade-out', 'fade-in')
+                    setTimeout(() => button.classList.remove('fade-in', 'copied'), 300)
+                }, 300)
+            }, 1000)
+        }, 300)
+    }
 
-								setTimeout(() => {
-									this.innerHTML = ""; // Clear current button content
-									this.appendChild(copiedIcon); // Append the icon
-									this.appendChild(copiedText); // Append the "Copied!" text
-									this.classList.remove("fade-out");
-									this.classList.add("fade-in", "copied");
+    document.querySelectorAll('.copy-button').forEach(button => {
+        const originalContent = button.innerHTML
+        const copyHandler = async function(e) {
+            e.preventDefault()
+            try {
+                const code = this.closest('pre')?.querySelector('code')
+                if (!code) return
 
-									setTimeout(() => {
-										this.classList.remove("fade-in");
-										this.classList.add("fade-out");
+                if (navigator.clipboard && window.isSecureContext) {
+                    await navigator.clipboard.writeText(code.textContent)
+                } else {
+                    const textArea = document.createElement('textarea')
+                    textArea.value = code.textContent
+                    textArea.style.position = 'fixed'
+                    textArea.style.left = '-999999px'
+                    document.body.appendChild(textArea)
+                    textArea.select()
+                    document.execCommand('copy')
+                    textArea.remove()
+                }
 
-										setTimeout(() => {
-											this.innerHTML = originalContent; // Restore original content
-											this.classList.remove("fade-out");
-											this.classList.add("fade-in");
+                if (!this.classList.contains('copied')) {
+                    animateCopyButton(this, originalContent)
+                }
+            } catch (err) {
+                console.error('Copy failed:', err)
+            }
+        }
 
-											setTimeout(() => {
-												this.classList.remove("fade-in", "copied");
-											}, 300);
-										}, 300);
-									}, 1000);
-								}, 300);
-							}
-						})
-						.catch((err) => {
-							console.error("Failed to copy: ", err);
-						});
-				}
-			}
-		});
-	}
-});
+        button.addEventListener('click', copyHandler)
+        button.addEventListener('touchend', copyHandler, { passive: false })
+    })
+})
