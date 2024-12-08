@@ -5,35 +5,35 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 const workEntries = await getCollection("works");
 
 const renderedEntries = await Promise.all(
-	workEntries
-		.filter((entry) =>
-			import.meta.env.PROD ? entry.data.draft !== true : true,
-		)
-		.map(async (entry) => {
-			const { remarkPluginFrontmatter } = await entry.render();
-			return {
-				...entry,
-				minutesRead: remarkPluginFrontmatter.minutesRead,
-			};
-		}),
+    workEntries
+        .filter((entry: any) =>
+            import.meta.env.PROD ? entry.data.draft !== true : true,
+        )
+        .map(async (entry: any) => {
+            const { remarkPluginFrontmatter } = await entry.render();
+            return {
+                ...entry,
+                minutesRead: remarkPluginFrontmatter.minutesRead,
+            };
+        }),
 );
 
 renderedEntries.sort(
-	(a, b) =>
-		new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime(),
+    (a, b) =>
+        new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime(),
 );
 
 const pageTitle = "Steele - Work";
 const pageDescription =
-	"A collection of Steele's side projects and freelance work.";
+    "A collection of Steele's side projects and freelance work.";
 
 const formatDate = (dateString: Date) => {
-	const date = new Date(dateString);
-	return date.toLocaleDateString("en-US", {
-		month: "short",
-		day: "numeric",
-		year: "numeric",
-	});
+    const date = new Date(dateString);
+    return date.toLocaleDateString("en-US", {
+        month: "short",
+        day: "numeric",
+        year: "numeric",
+    });
 };
 ---
 
@@ -41,7 +41,9 @@ const formatDate = (dateString: Date) => {
     <section class="slide-enter-content">
         <h1>Work</h1>
         <p>A shared collection of side projects and freelance work.</p>
-        <p style="font-size: var(--font-size-0-75); font-family: monospace">-- Under construction --</p>
+        <p style="font-size: var(--font-size-0-75); font-family: monospace">
+            -- Under construction --
+        </p>
         <ul id="work-list">
             {
                 renderedEntries.map((entry) => (
@@ -132,5 +134,4 @@ const formatDate = (dateString: Date) => {
             font-size: var(--font-size-0-75);
         }
     }
-
 </style>
