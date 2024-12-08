@@ -6,10 +6,10 @@ const postEntries = await getCollection("posts");
 
 const renderedEntries = await Promise.all(
     postEntries
-        .filter((entry) =>
+        .filter((entry: any) =>
             import.meta.env.PROD ? entry.data.draft !== true : true,
         )
-        .map(async (entry) => {
+        .map(async (entry: any) => {
             const { remarkPluginFrontmatter } = await entry.render();
             return {
                 ...entry,
