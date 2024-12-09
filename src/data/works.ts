@@ -9,7 +9,7 @@ export const workSchema = z.object({
     title: z.string(),
     pubDate: z.date(),
     description: z.string(),
-    image: Image,
+    image: z.instanceof(Image),
     githubUrl: z.string().url().optional(),
     demoUrl: z.string().url().optional(),
 })
