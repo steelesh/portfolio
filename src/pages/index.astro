@@ -1,16 +1,16 @@
 ---
-import "@styles/prose.css";
-import BaseLayout from "@layouts/BaseLayout.astro";
+import '@styles/prose.css'
+import BaseLayout from '@layouts/BaseLayout.astro'
 
-const pageTitle = "Steele - Home";
-const pageDescription = "Welcome to Steele's website!";
+const pageTitle = 'Steele - Home'
+const pageDescription = 'Welcome to Steele\'s website!'
 ---
 
 <BaseLayout pageTitle={pageTitle} pageDescription={pageDescription}>
     <section class="slide-enter-content">
         <div id="intro-container">
             <h1>
-                Welcome, friend.
+                Welcome.
                 <span>I'm Steele Shreve.</span>
             </h1>
             <svg
@@ -77,9 +77,8 @@ const pageDescription = "Welcome to Steele's website!";
         color: var(--primary-4);
         cursor: pointer;
         padding: 0.75rem 1.5rem;
-        transition:
-            background-color 0.3s ease,
-            transform 0.3s ease;
+        transition: background-color 0.3s ease,
+        transform 0.3s ease;
     }
 
     .primary-cta-button:hover {
@@ -101,9 +100,8 @@ const pageDescription = "Welcome to Steele's website!";
         padding: 0;
         text-decoration: underline;
         text-underline-offset: 2px;
-        transition:
-            color 0.3s ease,
-            transform 0.3s ease;
+        transition: color 0.3s ease,
+        transform 0.3s ease;
     }
 
     .secondary-cta-button:hover {
