@@ -2,14 +2,13 @@ import { z } from 'zod'
 import shrevesTaxServiceLogo from '@assets/shrevestax.png'
 import ucollab from '@assets/ucollab.png'
 import ideaStorm from '@assets/ideastorm.png'
-import { Image } from 'astro:assets'
 
 export const workSchema = z.object({
     draft: z.boolean().optional(),
     title: z.string(),
     pubDate: z.date(),
     description: z.string(),
-    image: z.instanceof(Image),
+    image: z.any(),
     githubUrl: z.string().url().optional(),
     demoUrl: z.string().url().optional(),
 })
