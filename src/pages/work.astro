@@ -1,137 +1,187 @@
 ---
-import { getCollection } from "astro:content";
-import BaseLayout from "@layouts/BaseLayout.astro";
+import { Image } from 'astro:assets'
+import BaseLayout from '@layouts/BaseLayout.astro'
+import { works } from '@data/works'
 
-const workEntries = await getCollection("works");
+const filteredWorks = import.meta.env.PROD
+    ? works.filter(work => !work.draft)
+    : works
 
-const renderedEntries = await Promise.all(
-    workEntries
-        .filter((entry: any) =>
-            import.meta.env.PROD ? entry.data.draft !== true : true,
-        )
-        .map(async (entry: any) => {
-            const { remarkPluginFrontmatter } = await entry.render();
-            return {
-                ...entry,
-                minutesRead: remarkPluginFrontmatter.minutesRead,
-            };
-        }),
-);
+const sortedWorks = filteredWorks.sort(
+    (a, b) => new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime(),
+)
 
-renderedEntries.sort(
-    (a, b) =>
-        new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime(),
-);
+const pageTitle = 'Steele - Work'
+const pageDescription = 'A collection of Steele\'s side projects and freelance work.'
 
-const pageTitle = "Steele - Work";
-const pageDescription =
-    "A collection of Steele's side projects and freelance work.";
-
-const formatDate = (dateString: Date) => {
-    const date = new Date(dateString);
-    return date.toLocaleDateString("en-US", {
-        month: "short",
-        day: "numeric",
-        year: "numeric",
-    });
-};
+const formatDate = (date: Date) => {
+    return date.toLocaleDateString('en-US', {
+        month: 'short',
+        year: 'numeric',
+    })
+}
 ---
 
 <BaseLayout pageTitle={pageTitle} pageDescription={pageDescription}>
     <section class="slide-enter-content">
         <h1>Work</h1>
-        <p>A shared collection of side projects and freelance work.</p>
-        <p style="font-size: var(--font-size-0-75); font-family: monospace">
-            -- Under construction --
-        </p>
-        <ul id="work-list">
+        <p>Some of my development projects and technical work.</p>
+        <div class="project-grid">
             {
-                renderedEntries.map((entry) => (
-                    <li>
-                        <a href={`/work/${entry.slug}`}>
-                            <span class="title">{entry.data.title}</span>
-                            <span class="meta">
-                                {formatDate(entry.data.pubDate)}
-                            </span>
-                        </a>
-                    </li>
+                sortedWorks.map((work) => (
+                    <article class="project-card">
+                        {work.image && (
+                            <div class="card-image">
+                                <Image
+                                    src={work.image}
+                                    alt={work.title}
+                                    width={1000}
+                                    height={1000}
+                                    class="thumbnail"
+                                />
+                            </div>
+                        )}
+                        <div class="card-content">
+                            <header>
+                                <h2>{work.title}</h2>
+                                <span class="date">{formatDate(work.pubDate)}</span>
+                            </header>
+                            <p class="description">{work.description}</p>
+                            <div class="actions">
+                                {work.demoUrl && (
+                                    <a
+                                        href={work.demoUrl}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        class="button"
+                                        aria-label="View Demo"
+                                    >
+                                        View Site
+                                    </a>
+                                )}
+                                {work.githubUrl && (
+                                    <a
+                                        href={work.githubUrl}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        class="button"
+                                        aria-label="View GitHub Repository"
+                                    >
+                                        View Source
+                                    </a>
+                                )}
+                            </div>
+                        </div>
+                    </article>
                 ))
             }
-        </ul>
+        </div>
     </section>
 </BaseLayout>
 
 <style>
     h1 {
+        font-size: var(--font-size-4);
         margin-bottom: 1rem;
     }
 
-    p {
-        margin-bottom: 1.5rem;
+    .project-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1.5rem;
+        margin-top: 2rem;
     }
 
-    ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
+    .project-card {
+        background-color: var(--primary-2);
+        border: 1px solid var(--primary-3);
+        border-radius: 0.75rem;
+        overflow: hidden;
+        box-shadow: 0 2px 2px var(--primary-1);
+        transition: all 0.3s ease-in-out;
     }
 
-    a {
+    .project-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 6px var(--primary-1);
+    }
+
+    .card-image {
+        width: 100%;
+        height: 225px;
+        overflow: hidden;
+    }
+
+    .thumbnail {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .card-content {
+        padding: 1.5rem;
+    }
+
+    header {
         display: flex;
-        background-color: var(--primary-9-5);
-        border: 1px solid var(--primary-9);
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+        gap: 1rem;
+    }
+
+    h2 {
+        font-size: var(--font-size-2);
+        margin: 0;
+        color: var(--primary-10);
+        line-height: 1.2;
+    }
+
+    .date {
+        font-size: var(--font-size-0-5);
+        color: var(--primary-9);
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+
+    .description {
+        color: var(--primary-9);
+        font-size: var(--font-size-0-75);
+        margin-bottom: 1.5rem;
+        line-height: 1.5;
+    }
+
+    .actions {
+        display: flex;
+        gap: 0.75rem;
+        justify-content: flex-end;
+    }
+
+    .button {
+        display: inline-block;
         padding: 0.5rem 1rem;
         border-radius: 0.5rem;
-        margin-bottom: 0.75rem;
-        align-items: center;
-        text-decoration: none;
-        justify-content: space-between;
-        transition: all 0.3s ease;
-        color: var(--primary-2);
-    }
-
-    .title {
-        display: flex;
-        max-width: 60%;
-        align-items: center;
-        gap: 0.5rem;
-    }
-
-    .meta {
-        color: var(--primary-5);
         font-size: var(--font-size-0-75);
-        transition: color 0.3s ease;
+        text-decoration: none;
+        background-color: var(--primary-3);
+        color: var(--primary-10);
+        transition: all 0.3s ease-in-out;
     }
 
-    ul a:hover {
-        color: black;
+    .button:hover {
+        transform: translateY(-1px);
+        background-color: var(--primary-4);
+        color: var(--primary-10);
     }
 
-    ul:hover a {
-        color: gray;
-    }
-
-    ul a:hover {
-        color: black;
-    }
-
-    ul a:hover .meta {
-        color: black;
+    .button.secondary:hover {
+        border-color: var(--primary-4);
+        color: var(--primary-10);
     }
 
     @media (max-width: 768px) {
-        h1 {
-            font-size: var(--font-size-5);
-        }
-    }
-
-    @media (max-width: 425px) {
-        .meta:first-child {
-            display: none;
-        }
-
-        .title {
-            font-size: var(--font-size-0-75);
+        .project-grid {
+            grid-template-columns: 1fr;
         }
     }
 </style>
