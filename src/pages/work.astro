@@ -93,7 +93,8 @@ const formatDate = (date: Date) => {
     }
 
     .project-card {
-        background-color: var(--primary-2);
+        background-color: var(--primary-9-5);
+        color: var(--primary-1);
         border: 1px solid var(--primary-3);
         border-radius: 0.75rem;
         overflow: hidden;
@@ -133,19 +134,19 @@ const formatDate = (date: Date) => {
     h2 {
         font-size: var(--font-size-2);
         margin: 0;
-        color: var(--primary-10);
+        color: var(--primary-1);
         line-height: 1.2;
     }
 
     .date {
         font-size: var(--font-size-0-5);
-        color: var(--primary-9);
+        color: var(--primary-4);
         white-space: nowrap;
         flex-shrink: 0;
     }
 
     .description {
-        color: var(--primary-9);
+        color: var(--primary-1);
         font-size: var(--font-size-0-75);
         margin-bottom: 1.5rem;
         line-height: 1.5;
@@ -179,7 +180,7 @@ const formatDate = (date: Date) => {
         color: var(--primary-10);
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 425px) {
         .project-grid {
             grid-template-columns: 1fr;
         }
